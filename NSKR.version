@@ -1,0 +1,14 @@
+{
+    "masterVersionFile": "https://www.dropbox.com/s/y2sr59h2ptq7rir/NSKR.version?dl=1",
+	"directDownloadURL": "https://www.dropbox.com/s/q4f9irllh8fjmzg/LOST_SECTOR.rar?dl=1",
+	"changelogURL": "https://www.dropbox.com/s/y6co3qqzogihh2q/Changelog.txt?dl=1",
+    "modName":"LOST_SECTOR",
+    "modThreadId":27556,
+    "modNexusId":"",
+    "modVersion":
+    {
+        "major":0,
+        "minor":6,
+        "patch":"0a",
+    },
+}

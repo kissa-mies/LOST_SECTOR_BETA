@@ -1,0 +1,65 @@
+{
+    "MagicLib": {
+		"bounty_board": {
+			# List bounties that will be loaded from data/config/modFiles/MagicBounty_data.json
+			# "id" : bounty id
+			# ["required_mod"] : list mods that are required to load that bounty, can be used to make cross mod bounties. Can be left empty.
+
+		},
+    },
+	
+	"exoticatechnologies": {
+    # average bandwidth weight multiplier
+    "factionBandwidthMult": {
+      "enigma": 2.0,
+	  "kesteven": 1.35,
+    },
+
+    # chance to add any amount of upgrades to a ship
+    # default chance is 0.4 (40%)
+    "factionUpgradeChances": {
+      "enigma": 0.8,
+	  "kesteven": 0.55,
+    },
+
+    # multiplier to chance to add any upgrade to the ship, given the above is true.
+    "factionPerUpgradeMult": {
+      "enigma": 5,
+	  "kesteven": 2.0,
+    },
+
+    # chance to add any amount of exotics to a ship
+    # default chance is 0.1 (10%)
+    "factionExoticChances": {
+      "enigma": 0.4,
+	  "kesteven": 0.15,
+    },
+
+    # multiplier to chance to add any exotic to the ship, given the above is true.
+    "factionPerExoticMult": {
+      "enigma": 4.0,
+	  "kesteven": 1.5,
+    },
+
+    # below are faction whitelists. the way to go about this is to follow omega example
+    # factionId_ExoticWhitelist and factionId_UpgradeWhitelist
+    "enigma_ExoticWhitelist": [
+      "PlasmaFluxCatalyst",
+      "DriveFluxVent",
+      "SpooledFeeders",
+      "SubsumedAlphaCore",
+      "SubsumedBetaCore",
+      "SubsumedGammaCore"
+    ],
+    "enigma_UpgradeWhitelist": [
+      "AdvancedFluxCoils",
+      "DerelictWeaponAssistant"
+    ],
+  },
+  
+  	"AdvancedGunneryControl":{
+        "suggestedWeaponTags": {
+
+          },
+    }
+}

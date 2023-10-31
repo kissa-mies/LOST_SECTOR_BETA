@@ -119,13 +119,14 @@ public class nskr_harmonicsStats extends BaseShipSystemScript {
         return "Harmonics - NO TARGET";
     }
 
-    public static boolean isValidTarget(ShipAPI source,ShipAPI target){
+    public static boolean isValidTarget(ShipAPI source, ShipAPI target){
         if (target==null) return false;
         if (target==source) return false;
         if (!target.isAlive()) return false;
         if (target.getOwner()!=source.getOwner()) return false;
         if (target.isFighter() || target.isStationModule()) return false;
         if (MathUtils.getDistance(source, target) > getMaxRange(source)) return false;
+        if (target.getFluxTracker().isOverloadedOrVenting()) return false;
 
         return true;
     }

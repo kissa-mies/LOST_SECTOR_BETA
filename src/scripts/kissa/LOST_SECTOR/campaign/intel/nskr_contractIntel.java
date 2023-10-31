@@ -56,6 +56,7 @@ public class nskr_contractIntel extends BaseIntelPlugin {
             Global.getSector().getFaction(Factions.PLAYER).adjustRelationship("kesteven", rep);
             person.getRelToPlayer().adjustRelationship(rep/2f, RepLevel.COOPERATIVE);
 
+            Global.getSector().getCampaignUI().addMessage(this);
             Global.getSector().getCampaignUI().addMessage("Contract complete",
                     tc, "", "", h, h);
             Global.getSector().getCampaignUI().addMessage("Received "+Misc.getDGSCredits(contract.totalReward),
@@ -70,6 +71,13 @@ public class nskr_contractIntel extends BaseIntelPlugin {
         if (!failed && contract.failed){
             failed = true;
 
+            Color h = Misc.getHighlightColor();
+            Color g = Misc.getGrayColor();
+            Color tc = Misc.getTextColor();
+
+            Global.getSector().getCampaignUI().addMessage(this);
+            Global.getSector().getCampaignUI().addMessage("Contract failed",
+                    tc, "", "", h, h);
             Global.getSoundPlayer().playUISound("ui_noise_static",1f,1f);
             end();
         }
@@ -162,7 +170,7 @@ public class nskr_contractIntel extends BaseIntelPlugin {
         float opad = 10f;
         if (!completed && !failed){
             if (contract.type== contractInfo.contractType.ELIMINATE){
-                info.addPara("You accepted an elimination contract, for the destruction of certain assets belonging to the enemies of kesteven.", opad,tc, h, "", "");
+                info.addPara("You accepted an elimination contract, for the destruction of certain assets belonging to the enemies of Kesteven.", opad,tc, h, "", "");
             } else {
                 info.addPara("You accepted a recovery contract, for the salvaging of certain materials.", opad,tc, h, "", "");
             }

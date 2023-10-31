@@ -43,9 +43,9 @@ public class nskr_teleport_dummy extends BaseHullMod {
 			color = PROT_COLOR;
 		}
 
-		if (engine.isPaused()) return;
+		if (engine.isPaused() || !player) return;
 
-		if (player && !engine.isPaused() && ship.getSystem().getAmmo()>0){
+		if (ship.getSystem().getAmmo()>0){
 			if (sprite == null) {
 				// Load sprite if it hasn't been loaded yet - not needed if you add it to settings.json
 				if (!loaded) {
@@ -62,7 +62,7 @@ public class nskr_teleport_dummy extends BaseHullMod {
 
 			//engine.addFloatingText(sLoc, "test " + (int)vAngle +","+ (int)sAngle +","+ (int)diff +","+ diffMult, 30f, Color.cyan, ship, 0.5f, 1.0f);
 
-			tPoint = nskr_warpStats.teleportPoint(ship, nskr_warpStats.BASE, nskr_warpStats.MULTIPLIER, nskr_warpStats.DIFF_BASE, nskr_warpStats.DIFF_DIAGONAL, nskr_warpStats.DIFF_SIDEWAYS);
+			tPoint = nskr_warpStats.teleportPoint(ship);
 
 			//DRAW SPRITE
 				Vector2f size = new Vector2f(ACTIVE_RANGE*2f, ACTIVE_RANGE*2f);

@@ -65,7 +65,7 @@ public class nskr_blacksiteDialog implements InteractionDialogPlugin {
             text.addPara("\"The whole damn thing is tamper proof.\" Your ops chief scoffs. \"According to our quick analysis of the site it appears to belong to "+ factionText +". " +
                     "They'll come and try to stop us from salvaging it. I would expect "+site.count+" "+fleetText+", with their total numbers being "+str+" to ours.\"",tc, faction.getColor(),factionText, "");
             text.addPara("\"They'll most likely try and empty the station themselves - as to not risk any of the valuable equipment falling into our hands, rather than try attacking us directly. " +
-                    "So be prepared to stop them. That's all captain.\" The ops chief gives you a confirming nod.",tc,h,"");
+                    "So be prepared to stop them. That's all captain.\" The ops chief gives you a nod of confirmation.",tc,h,"");
             text.addPara("You can't safely take further actions with the site until all the hostile fleets are defeated or enough time has passed.",tc,h,"hostile fleets are defeated");
 
             options.addOption("Trip the alarm", OptionId.ACTIVATE);

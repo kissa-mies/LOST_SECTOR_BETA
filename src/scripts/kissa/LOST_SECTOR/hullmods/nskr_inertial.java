@@ -100,7 +100,10 @@ public class nskr_inertial extends BaseHullMod {
                         glow = util.randomiseColor(glow, (int)(20*dmgNormalized), (int)(20*dmgNormalized), (int)(50*dmgNormalized), (int)(50*dmgNormalized), true);
                     }
 
-                    renderUtil.renderGlow(wep.getLocation(), wep.getSprite().getHeight()*0.33f, glow);
+                    //GLOW
+                    if (wep.getSprite()!=null) {
+                        renderUtil.renderGlow(wep.getLocation(), wep.getSprite().getHeight() * 0.33f, glow);
+                    }
                 }
             }
 

@@ -27,7 +27,7 @@ public class nskr_dormantSpawner {
     //List of stuff to spawn and their count
     public static final List<Pair<String, Integer>> DORMANT_SPAWNS = new ArrayList<>();
     static {
-        DORMANT_SPAWNS.add(new Pair<>("enigma", 18));
+        DORMANT_SPAWNS.add(new Pair<>("enigma", 15));
     }
     //Weights for the different types of locations our things can spawn in
     public static final LinkedHashMap<LocationType, Float> WEIGHTS = new LinkedHashMap<>();

@@ -39,7 +39,7 @@ public class nskr_stalkerSpawner extends BaseCampaignEventListener implements Ev
 
     public static final float STALKER_TIMER = 240f;
     public static final float DESPAWN_TIMER = 240f;
-    public static final float BASE_SIZE_MULT = 7f;
+    public static final float BASE_SIZE_MULT = 6f;
     public static final float MIN_STRENGTH = 15f;
     public static final float MAX_STRENGTH = 100f;
     public static final float MIN_POWER = 0.70f;
@@ -379,13 +379,13 @@ public class nskr_stalkerSpawner extends BaseCampaignEventListener implements Ev
                 keys.add(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS);
             }
             //keys.add(MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER);
-            keys.add(MemFlags.FLEET_IGNORES_OTHER_FLEETS);
+            //keys.add(MemFlags.FLEET_IGNORES_OTHER_FLEETS);
             keys.add(MemFlags.FLEET_FIGHT_TO_THE_LAST);
             keys.add(MemFlags.MEMORY_KEY_FORCE_TRANSPONDER_OFF);
             keys.add(FLEET_KEY);
 
             simpleFleet simpleFleet = new simpleFleet(market.getPrimaryEntity(), "enigma", combatPoints, keys, random);
-            simpleFleet.type = type;
+            //simpleFleet.type = type;
             simpleFleet.aiFleetProperties = true;
 
             switch (lvl) {

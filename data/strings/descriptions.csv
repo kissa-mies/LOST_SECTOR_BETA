@@ -48,7 +48,7 @@ Please register your Tri-Tachyon datapad to receive the latest news and updates.
 
 nskr_minokawa,SHIP,"A seemingly alien design not built to any known spec. This ""Prototype"" hull is most likely part of a secret Domain-era research program operating far from prying eyes. 
 
-""There will be no ifs about this, what is necessary will be done and what is required will be provided. Bring in the top clearance teams, this now our top priority."" - Dr. Vaughn - Project Lead",Unidentified Vessel,"UNKNOWN ENTRY
+""There will be no ifs about this, what is necessary will be done and what is required will be provided. Bring in the top clearance teams, this is now our top priority."" - Dr. Vaughn - Project Lead",Unidentified Vessel,"UNKNOWN ENTRY
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
@@ -72,7 +72,7 @@ Please register your Tri-Tachyon datapad to receive the latest news and updates.
 
 nskr_warfare,SHIP,"A seemingly alien design not built to any known spec. This ""Prototype"" hull is most likely part of a secret Domain-era research program operating far from prying eyes. 
 
-""The AI assisted computation has been a huge boon to our development speed. We can expect the platform to be delivered right on time."" - Dr.Aslov - Material science, department #24",Unidentified Vessel,"UNKNOWN ENTRY
+""The AI assisted computation has been a huge boon to our development speed. We can expect the platform to be delivered - Right on time."" - Dr. Aslov - Material science, department #24",Unidentified Vessel,"UNKNOWN ENTRY
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
@@ -84,19 +84,19 @@ Please register your Tri-Tachyon datapad to receive the latest news and updates.
 
 nskr_epoch,SHIP,"A seemingly alien design not built to any known spec. This ""Prototype"" hull is most likely part of a secret Domain-era research program operating far from prying eyes. 
 
-""Now that the move to clearance level-2 is complete, we can finally begin integrating the Gamma-core assisted temporal reposition matrix. We should now have more than enough computational power to avoid the unfortunate P-space cascades of past experiments."" - Dr.Tallaha - Applied engineering, wing #97",Unidentified Vessel,"UNKNOWN ENTRY
+""Now that the move to clearance level-2 is complete, we can finally begin integrating the Gamma-core assisted temporal reposition matrix. We should now have more than enough computational power to avoid the unfortunate P-space cascades of past experiments."" - Dr. Tallaha - Applied engineering, wing #97",Unidentified Vessel,"UNKNOWN ENTRY
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
 nskr_widow,SHIP,"A seemingly alien design not built to any known spec. This ""Prototype"" hull is most likely part of a secret Domain-era research program operating far from prying eyes.
 
-""Sometimes I ponder about the about the weight of responsibility for designing such weapons, but I have to remember in the end - It's on the person pulling the trigger."" - Dr. Katame - Journal #5811",Unidentified Vessel,"UNKNOWN ENTRY
+""Sometimes I think about the about the weight of responsibility for designing such weapons, but I have to remember, in the end - It's on the person pulling the trigger."" - Dr. Katame - Journal #5811",Unidentified Vessel,"UNKNOWN ENTRY
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
 nskr_torpor,SHIP,"A seemingly alien design not built to any known spec. This ""Prototype"" hull is most likely part of a secret Domain-era research program operating far from prying eyes.
 
-""Faster, slower, it's all about perspective. To a photon we seem real damn slow."" - Dr. Allegre - Temporal physics, wing #17",Unidentified Vessel,"UNKNOWN ENTRY
+""Faster - Slower, it's all about perspective. To a photon we seem real damn slow."" - Dr. Allegre - Temporal physics, wing #17",Unidentified Vessel,"UNKNOWN ENTRY
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
@@ -162,15 +162,15 @@ A remnant of the autonomous AI fleets developed by the Tri-Tachyon Corporation. 
 
 Please register your Tri-Tachyon datapad to receive the latest news and updates.",,
 
-nskr_pbcc,WEAPON,"""I don't know. What if the containment field fails?"" ""The physics department calculated that to be impossible."" ""And what if they're wrong?"" ""Well... It wont be our problem anymore.""", "- Jr.engineer Braams and Sr.engineer Nicholson - Transcript of recording #783",,,
+nskr_pbcc,WEAPON,"""You ever think about umm-... What happens if the containment field fails?"" ""They've calculated that to be impossible."" ""...And what if they're wrong?"" ""Well... It wont be our problem anymore.""", "- Jr.engineer Braams and Sr.engineer Nicholson - Transcript of recording #783",,,
 
-nskr_mfrocketpod,WEAPON,"""The test firing broke every single breaker on board, further refinement requested.""","- Test Pilot ""V"" - Project log #0651",,,
+nskr_mfrocketpod,WEAPON,"""Test firing broke every single breaker on board, further refinement requested.""","- Test Pilot ""V"" - Project log #0651",,,
 
 nskr_spikem,WEAPON,"""Direct hit on the front bulkheads, some shrapnel made it all the to the back of the ship. Ending with some poor fellow attached to the roof of the engine deck.""", "- Damage report on the now recovered ISS Old Forgoyle",,,
 
-nskr_spikes,WEAPON,"""I requested more time to finish the targeting of the final stage, we are simply out of time on the project. Let's hope for everyone's sake it works at all.""", "- Project engineer Kelley - Heavy ordnance, wing #82",,,
+nskr_spikes,WEAPON,"""I will not grant anymore time, no more delays. Let's hope for everyone's sake it works at all.""", "- Department Lead Lionis - Project log #4494",,,
 
-nskr_tremorm,WEAPON,"""I hate it, someone broke the lounge coffeemaker. So now I have to leave a request to the requisitions department. So they can send someone over in a week, then finally they make a request which takes another week, so they can finally schedule the maintenance crew to install it in 1 - 2 weeks.""","- Project engineer Waller - Journal #4605",,,
+nskr_tremorm,WEAPON,"""I hate it here... So some genius messed with the lounge coffeemaker and broke it. Now I have to leave a request to the requisitions department. So they can send someone over in like a week. Then they make a request which takes another week, so they can finally schedule the maintenance crew to install a new one in 2 - 4 weeks.""","- Project engineer Waller - Journal #4605",,,
 
 nskr_tremors,WEAPON,"""The Delta-core assisted swarm targeting could be interpreted as higher level AI in function. Requested review from the AI-Ethics board.""","- Guidance technician Greene - Project log #1251",,,
 
@@ -188,7 +188,7 @@ nskr_hshotgun,WEAPON,"""What do they even need a gun this big for?"" ""You need 
 
 nskr_inverter,WEAPON,"""The recursive nature of the particular anomalies has brought the attention of the temporal dynamics board. Unfortunately the current project is on hold until we can get a conclusive report on whether the clearance level of the project needs to be raised. ETA, 3 - 6 business months.""", "- Dr. Chen - High energy physics, department #178",,,
 
-nskr_collector,WEAPON,"""I've never seen anything quite like it. A perfect sphere of material dwarfing a single person, cleanly missing off the impact point with millimeter precision in every direction. I don't think they can just buff this one out.""", "- Inspection of the now wrecked K-CORP Nightrunner",,,
+nskr_collector,WEAPON,"""I've never seen anything quite like it. A large - yet perfect sphere of material, dwarfing a single person, cleanly missing off the impact point with millimeter precision in every direction. I don't think they can just buff this one out.""", "- Inspection of the now wrecked K-CORP Nightrunner",,,
 
 nskr_huginn_arm_right,WEAPON,"A heavy blaster built into the Huginn-type attack drone. The Garde has the capability to provide excellent results against most targets thanks to the massive blast radius and high damage.",,,,
 

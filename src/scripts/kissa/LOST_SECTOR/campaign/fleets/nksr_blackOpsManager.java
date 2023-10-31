@@ -72,8 +72,6 @@ public class nksr_blackOpsManager extends BaseCampaignEventListener implements E
 
     @Override
     public void advance(float amount) {
-        pf = Global.getSector().getPlayerFleet();
-        if (pf == null) return;
 
         if (Global.getSector().isInFastAdvance()) {
             counter.val += 2f*amount;
@@ -83,6 +81,8 @@ public class nksr_blackOpsManager extends BaseCampaignEventListener implements E
 
         //logic
         if (counter.val>10f) {
+            pf = Global.getSector().getPlayerFleet();
+            if (pf == null) return;
             //spawning
             SectorEntityToken home = getUPC();
             if (home!=null && fleetUtil.getFleets(FLEET_ARRAY_KEY).size() < MAX_FLEETS) {

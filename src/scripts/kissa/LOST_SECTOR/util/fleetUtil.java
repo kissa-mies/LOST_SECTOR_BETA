@@ -300,6 +300,9 @@ public class fleetUtil {
             //ATTACK AI
             if (playerVisible && Math.random()<playerInterceptChance){
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+                //make visible to other fleets
+                fleet.getMemoryWithoutUpdate().unset(MemFlags.FLEET_IGNORES_OTHER_FLEETS);
+                fleet.getMemoryWithoutUpdate().unset(MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS);
 
                 fleet.clearAssignments();
                 fleet.addAssignment(FleetAssignment.INTERCEPT, pf, Float.MAX_VALUE, "intercepting your fleet");
@@ -307,6 +310,9 @@ public class fleetUtil {
             else if (attackBehaviour == guardAttackBehaviour.HOSTILE){
                 for (CampaignFleetAPI e : Misc.getVisibleFleets(fleet, false)){
                     if (!fleet.getFaction().isHostileTo(e.getFaction())) continue;
+                    //make visible to other fleets
+                    fleet.getMemoryWithoutUpdate().unset(MemFlags.FLEET_IGNORES_OTHER_FLEETS);
+                    fleet.getMemoryWithoutUpdate().unset(MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS);
                     fleet.clearAssignments();
                     fleet.addAssignment(FleetAssignment.INTERCEPT, e, Float.MAX_VALUE, "intercepting fleet");
                     break;

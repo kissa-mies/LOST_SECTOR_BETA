@@ -86,7 +86,7 @@ public class questFleets {
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, Factions.MERCENARY, points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 3;
         simpleFleet.sMods = 3;
         simpleFleet.ignoreMarketFleetSizeMult = true;
@@ -162,7 +162,7 @@ public class questFleets {
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, "kesteven", points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 3;
         simpleFleet.sMods = 3;
         simpleFleet.ignoreMarketFleetSizeMult = true;
@@ -212,7 +212,7 @@ public class questFleets {
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, Factions.TRITACHYON, combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.ignoreMarketFleetSizeMult = true;
         simpleFleet.sMods = 2;
         simpleFleet.maxShipSize = 3;
@@ -325,7 +325,7 @@ public class questFleets {
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, "enigma", combatPoints, keys, random);
         simpleFleet.aiFleetProperties = true;
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 2;
         simpleFleet.commander = simpleCaptain.create();
         simpleFleet.flagshipInfo = flagship;
@@ -370,7 +370,7 @@ public class questFleets {
         keys.add(questStageManager.JOB4_FRIENDLY_KEY);
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, "kesteven", combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_MEDIUM;
+        //simpleFleet.type = FleetTypes.PATROL_MEDIUM;
         simpleFleet.freighterPoints = combatPoints/4f;
         simpleFleet.tankerPoints = combatPoints/6f;
         simpleFleet.linerPoints = combatPoints/5f;
@@ -409,7 +409,7 @@ public class questFleets {
         keys.add(questStageManager.JOB3_TARGET_KEY);
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, Factions.TRITACHYON, combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.freighterPoints = combatPoints/4f;
         simpleFleet.tankerPoints = combatPoints/4f;
         simpleFleet.linerPoints = combatPoints/8f;

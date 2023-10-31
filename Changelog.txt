@@ -12,27 +12,33 @@ Version 0.6.0a
 - Proc-gen objective defense "event" 
    - Defend a station from enemy fleets to get big loot
 - Added 2 "hidden" role-play endings for the questline   
+- Updated Exotica support
+   - Enigma ships can now spawn with two different unique upgrades - Temporal Conduits, Space Time Anchor
 
 - Reduced Kingslayer armor 1,600->1,500, and flux cap 16,000->15,000
 - Reduced Nighthawk flux cap 11,000->10,000
 - Reduced Prosperity armor 1,600->1,500
 - Increased Mercenary shipsystem cooldown between charge uses 2s->5s 
 - Reduced Sovereign DP & supplies/mo to 35->32
-- Reduced Keres Storm Cannon sustained dps 112,5->90
+- Reduced Keres Storm Cannon sustained dps 112,5->100
 - Increased Tremor missile damage 350->375
-- Increased Bite ALG base range 350->400
+- Increased Bite ALG base range 350->400, Increased charge regen from 6s->5s
 - Increased Zhonya cooldown 15s->17.5s
 - Increased Volatile Flux Injector s-mod penalty 15%->25%
 - Abyssal tech type renamed to Void
-   - Void ship phase upkeep reduced
+   - Void ship Cruiser and Destroyer phase upkeep reduced, frigate is unchanged
 - Reduced shipsystem base range of Causality and BF Pulse 
    - Now scales with shipsystem range modifiers (like Sys-Ex)
 - Installing SO on Enigma ships now has a CR malus
 
+- Fixed game freeze when joining battles against Kesteven/Enigma (Finally, this one was FUCKED)
+   - Also fixes disappearing ships / impossible to end battles
 - Fixed a possible crash when raiding a certain market
+- Fixed a possible crash with the Inertial Supercharger hullmod
 - Fixed a rare crash when using the artifact exchange
 - Fixed a rare crash when starting the main questline
 - Fixed Enigma not being hostile to some factions
+- Fixed jank with fleets not supporting the player against Enigma
 - Fixed r&d facilities and other entities sometimes having ridiculous orbit speeds
 - Rewrote all Prototype weapon and hull descriptions
 - Small additions and changes to questline dialog

@@ -184,7 +184,7 @@ public class nskr_eternitySpawner extends BaseCampaignEventListener implements E
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, FACTION, points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 2;
         simpleFleet.sMods = 3;
         simpleFleet.name = FLEET_NAME;

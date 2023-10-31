@@ -159,9 +159,7 @@ public class nskr_baseMissile implements MissileAIPlugin, GuidedMissileAI {
     }
 
     protected CombatEntityAPI getMouseTarget(ShipAPI launchingShip) {
-        ListIterator<ShipAPI> iter = getSortedDirectTargets(launchingShip).listIterator();
-        while (iter.hasNext()) {
-            ShipAPI tmp = iter.next();
+        for (ShipAPI tmp : getSortedDirectTargets(launchingShip)) {
             if (isTargetValid(tmp)) {
                 return tmp;
             }

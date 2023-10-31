@@ -29,9 +29,11 @@ public class contractManager extends BaseCampaignEventListener implements EveryF
     //private List<contractInfo> contracts;
 
     nskr_saved<Float> counter;
+    nskr_saved<Float> resetCounter;
     public contractManager() {
         super(false);
         this.counter = new nskr_saved<>("contractManagerCounter", 0.0f);
+        this.resetCounter = new nskr_saved<>("contractManagerResetCounter", 0.0f);
 
         //init randoms
         getRandom(nskr_contracts.PERSISTENT_RANDOM_KEY_ELIMINATE);
@@ -50,8 +52,10 @@ public class contractManager extends BaseCampaignEventListener implements EveryF
         //timer
         if (Global.getSector().isInFastAdvance()) {
             counter.val += 2f*amount;
+            resetCounter.val += 2f*amount;
         } else{
             counter.val += amount;
+            resetCounter.val += amount;
         }
 
         List<contractInfo> contracts = getContracts(CONTRACT_ARRAY_KEY);
@@ -67,6 +71,19 @@ public class contractManager extends BaseCampaignEventListener implements EveryF
             }
             setContracts(contracts, CONTRACT_ARRAY_KEY);
             counter.val = 0f;
+        }
+
+        //reset offered contracts
+        if (resetCounter.val>=600f){
+            //reset
+            if (nskr_contracts.getContract(nskr_contracts.CONTRACT_KEY_ELIMINATE)!=null){
+                nskr_contracts.setContract(nskr_contracts.CONTRACT_KEY_ELIMINATE, null);
+            }
+            if (nskr_contracts.getContract(nskr_contracts.CONTRACT_KEY_RECOVERY)!=null){
+                nskr_contracts.setContract(nskr_contracts.CONTRACT_KEY_RECOVERY, null);
+            }
+
+            resetCounter.val = 0f;
         }
 
     }

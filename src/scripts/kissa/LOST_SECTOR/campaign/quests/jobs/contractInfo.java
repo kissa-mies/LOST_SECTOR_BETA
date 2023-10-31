@@ -237,7 +237,11 @@ public class contractInfo {
         count = Math.max(count,1);
         rewardPer = Math.max(rewardPer,1);
         //round off
-        rewardPer = Math.round(rewardPer/25f) * 25;
+        if (type==contractType.ELIMINATE) {
+            rewardPer = Math.round(rewardPer / 50f) * 50;
+        } else {
+            rewardPer = Math.round(rewardPer / 5f) * 5;
+        }
         totalReward = rewardPer*count;
     }
 

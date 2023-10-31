@@ -229,12 +229,11 @@ ShowDefaultVisual","$fleetName powers up their weapons and moves in to engage.",
 "#END ELIZA fight dialog",,,,,,
 ,,,,,,
 # CACHE fleet dialog,,,,,,
-cacheDialogInit,BeginFleetEncounter,"$faction.id == derelict score:1000
-!$ignorePlayerCommRequests
+cacheDialogInit,BeginFleetEncounter,"!$ignorePlayerCommRequests
+$isHostile
 $CacheGuardianFleet","HailPlayer",,,
-cacheDialogInitial,OpenCommLink,"$faction.id == derelict score:1000
-$entity.isHostile
-$entity.CacheGuardianFleet score:100","$entity.ignorePlayerCommRequests = true 100","A tempest of sharp shapes and flickering colors fill the screen, an ominous hum plays. Until a voice crystallizes through the noise. The storm of visuals calms down with it, into a mesmerizing pattern of shapes and colors.
+cacheDialogInitial,OpenCommLink,"$entity.isHostile
+$entity.CacheGuardianFleet score:100000","$entity.ignorePlayerCommRequests = true 1000","A tempest of sharp shapes and flickering colors fill the screen, an ominous hum plays. Until a voice crystallizes through the noise. The storm of visuals calms down with it, into a mesmerizing pattern of shapes and colors.
 ""I see you chose ambition starfarer. Now it's time to act honestly, with cruelty. If you would make a mountain of the dead, pile it so it reaches the sky. If you would shed blood let it run as a river. Such actions lead to victory... Is this not the mortals desire, burn brightly before fading out - To win, no matter the cost.""
 The voice suddenly dies out, and the shapes and colors become increasingly erratic.
 
@@ -428,29 +427,6 @@ ShowDefaultVisual",,,
 "#END PEACEKEEPERS",,,,,,
 ,,,,,,
 # MOTHERSHIP,,,,,,
-mothershipDialogDefault,OpenCommLink,"$faction.id == remnant score:1000
-$entity.isHostile
-$entity.mothershipLoot score:100
-!$ignorePlayerCommRequests
-$mothershipDialogExtraSelected score:100",,"""CID-IFF received 'Greetings valued technician. Your vessel is logged as a valid contract holder with the Tri-Tachyon Integrated Space Defense line of products and services. Development mode is now active.""
-
-Project Helios :
-STATUS REPORT
-
-Weapons: Nominal
-Sensors: Nominal
-Comms: ERROR - No connection
-Reactor: Full Power
-Bays: Active
-Subroutines: Active
-
-INTERRUPT
-
-Are you omega [query] No, return; 
-
-
-","cutCommLink:Cut the comm link
-",
 mothershipDialogExtra,OpenCommLink,"$faction.id == remnant score:1000
 $entity.isHostile
 $entity.mothershipLoot score:100
@@ -460,17 +436,40 @@ $entity.mothershipLoot score:100
 Project Helios :
 STATUS REPORT
 
-Weapons: Nominal
-Sensors: Nominal
-Comms: ERROR - No connection
-Reactor: Full Power
-Bays: Active
+Weapons: Standby
+Sensors: Active
+Comms: ERROR - NO CONNECTION
+Reactor: Full output
+Bays: Standby
 Subroutines: Active
 
 INTERRUPT
 
 Are you omega [query] No, return; ","cutCommLink:Cut the comm link
 mothershipDialogExtraShutdown:Try to shut down the AI
+",
+mothershipDialogDefault,OpenCommLink,"$faction.id == remnant score:1000
+$entity.isHostile
+$entity.mothershipLoot score:100
+!$ignorePlayerCommRequests
+$mothershipDialogExtraSelected score:100",,"""CID-IFF received 'Greetings valued technician. Your vessel is logged as a valid contract holder with the Tri-Tachyon Integrated Space Defense line of products and services. Development mode is now active.""
+
+Project Helios :
+STATUS REPORT
+
+Weapons: Standby
+Sensors: Active
+Comms: ERROR - NO CONNECTION
+Reactor: Full output
+Bays: Standby
+Subroutines: Active
+
+INTERRUPT
+
+Are you omega [query] No, return; 
+
+
+","cutCommLink:Cut the comm link
 ",
 mothershipDialogExtraShutdown,DialogOptionSelected,"$option == mothershipDialogExtraShutdown","$mothershipDialogExtraSelected = true 100","You order the comms team to see if they can take remote control of the mothership, but are shortly confronted by the following interface.
 ""Valued technician, Please re-enter the system override key for further access.""

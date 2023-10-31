@@ -36,7 +36,8 @@ public class nskr_pullbackStats extends BaseShipSystemScript {
         if (state == State.ACTIVE) {
             //TELEPORT
             if (!activated) {
-                nskr_teleporterPlugin.addTeleportation(ship, data.tPoint1);
+                //nskr_teleporterPlugin.addTeleportation(ship, data.tPoint1);
+                ship.getLocation().set(data.tPoint1);
                 Vector2f vel = ship.getVelocity();
                 ship.getVelocity().set(mathUtil.scaleVector(vel, 0.2f));
 

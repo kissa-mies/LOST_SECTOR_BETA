@@ -217,7 +217,7 @@ public class nskr_abyssSpawner extends BaseCampaignEventListener implements Ever
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, FACTION, points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 3;
         simpleFleet.sMods = 3;
         simpleFleet.ignoreMarketFleetSizeMult = true;

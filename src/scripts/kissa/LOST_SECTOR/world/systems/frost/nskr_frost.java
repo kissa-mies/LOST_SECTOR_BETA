@@ -11,6 +11,7 @@ import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.CoreLifecyclePluginImpl;
 import com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin;
 import com.fs.starfarer.api.impl.campaign.ids.*;
+import com.fs.starfarer.api.impl.campaign.intel.deciv.DecivTracker;
 import com.fs.starfarer.api.impl.campaign.procgen.DefenderDataOverride;
 import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
@@ -203,6 +204,7 @@ public class nskr_frost {
 		heartmarket.addCondition(Conditions.COLD);
 		heartmarket.addCondition(Conditions.RUINS_VAST);
 
+		heartmarket.getMemoryWithoutUpdate().set(DecivTracker.NO_DECIV_KEY, true);
 		heartmarket.getMemoryWithoutUpdate().set("$nex_uninvadable", true);
 		heartmarket.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
 

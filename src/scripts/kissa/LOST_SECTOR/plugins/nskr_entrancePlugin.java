@@ -22,10 +22,10 @@ public class nskr_entrancePlugin extends BaseEveryFrameCombatPlugin {
     //adds fx when deploying certain ships to combat
 
     public static final Color ENIGMA_COLOR = new Color(255,94,118,255);
-    public static final Color ENIGMA_NEB_COLOR = new Color(255, 123, 127,165);
+    public static final Color ENIGMA_NEB_COLOR = new Color(255, 123, 127,105);
     public static final Color ENIGMA_P_COLOR = new Color(255, 49, 121,255);
     public static final Color PROT_COLOR = new Color(87,146,255,255);
-    public static final Color PROT_NEB_COLOR = new Color(132, 175, 255,165);
+    public static final Color PROT_NEB_COLOR = new Color(132, 175, 255,105);
     public static final Color PROT_P_COLOR = new Color(85, 235, 255,255);
 
     public static final String SOUND_ID = "nskr_entrance";
@@ -88,7 +88,7 @@ public class nskr_entrancePlugin extends BaseEveryFrameCombatPlugin {
                         for (int x = 0; x < 160; x++) {
                             particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), (float) Math.random() * (ship.getCollisionRadius() + 50f));
                             particleVel = Vector2f.sub(particlePos, ship.getLocation(), null);
-                            Global.getCombatEngine().addSmokeParticle(particlePos, particleVel, 5f, 0.75f, 1.50f,
+                            Global.getCombatEngine().addSmokeParticle(particlePos, particleVel, 5f, 0.60f, 1.50f,
                                     pColor);
                         }
                         //nebula fx

@@ -253,7 +253,8 @@ public class nskr_causalityStats extends BaseShipSystemScript {
                         doOnce = true;
                     }
                     if (!teleported){
-                        nskr_teleporterPlugin.addTeleportation(ship, point2);
+                        //nskr_teleporterPlugin.addTeleportation(ship, point2);
+                        ship.getLocation().set(point2);
                         // engine.addFloatingText(point2, "test ", 20f, Color.cyan, ship, 0.5f, 1.0f);
                         teleported = true;
                     }
@@ -271,7 +272,8 @@ public class nskr_causalityStats extends BaseShipSystemScript {
                         doOnce = true;
                     }
                     if (!teleported){
-                        nskr_teleporterPlugin.addTeleportation(ship, point3);
+                        //nskr_teleporterPlugin.addTeleportation(ship, point3);
+                        ship.getLocation().set(point3);
                         // engine.addFloatingText(point2, "test ", 20f, Color.cyan, ship, 0.5f, 1.0f);
                         teleported = true;
                     }

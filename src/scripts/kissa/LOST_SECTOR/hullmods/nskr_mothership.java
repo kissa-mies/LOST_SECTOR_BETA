@@ -23,7 +23,6 @@ public class nskr_mothership extends BaseHullMod {
     public static final float AMMO_BONUS = 100f;
     public static float RATE_DECREASE_MODIFIER = 33.33f;
     public static float RATE_INCREASE_MODIFIER = 50f;
-    public static float ZERO_FLUX_BONUS = 100f;
 
     public static final float CR_BONUS = 15f;
     public static final float CR_PENALTY = 15f;
@@ -44,8 +43,6 @@ public class nskr_mothership extends BaseHullMod {
         stats.getMissileAmmoBonus().modifyPercent(id, AMMO_BONUS);
         stats.getBallisticAmmoBonus().modifyPercent(id, AMMO_BONUS);
         stats.getEnergyAmmoBonus().modifyPercent(id, AMMO_BONUS);
-
-        //stats.getZeroFluxSpeedBoost().modifyPercent(id, ZERO_FLUX_BONUS);
 
         stats.getDynamic().getStat(Stats.REPLACEMENT_RATE_DECREASE_MULT).modifyMult(id, 1f - RATE_DECREASE_MODIFIER / 100f);
         stats.getDynamic().getStat(Stats.REPLACEMENT_RATE_INCREASE_MULT).modifyPercent(id, RATE_INCREASE_MODIFIER);
@@ -68,9 +65,12 @@ public class nskr_mothership extends BaseHullMod {
         boolean player = isInPlayerFleet(member.getStats());
         if (player) {
             if (fuel > 0f) {
+                unApplyPenaltyStats(FUEL_BASE_KEY+"out_of_fuel", stats);
                 //cap count for subroutine
                 if (getCapitalCount(pf)<=1){
                     applySubroutineStats(FUEL_BASE_KEY, pf, stats);
+                } else {
+                    unApplySubroutineStats(FUEL_BASE_KEY, pf, stats);
                 }
 
             } else {
@@ -101,14 +101,32 @@ public class nskr_mothership extends BaseHullMod {
         stats.getMaxCombatReadiness().modifyFlat(id, CR_BONUS * 0.01f);
 
         for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()) {
-            if (m.isFrigate()) {
-                m.getStats().getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, -1f);
+            if (m.getVariant()==null) continue;
+            if (m.getVariant().hasHullMod("nskr_mothership_frigate")) continue;
+            if (!m.isFrigate()) continue;
+
+            m.getVariant().addMod("nskr_mothership_frigate");
+        }
+    }
+
+    private void unApplySubroutineStats(String id, CampaignFleetAPI fleet, MutableShipStatsAPI stats) {
+        stats.getMaxCombatReadiness().unmodify(id);
+
+        for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()) {
+            if (m.getVariant()==null) continue;
+            if (m.getVariant().hasHullMod("nskr_mothership_frigate")){
+                m.getVariant().removeMod("nskr_mothership_frigate");
             }
         }
     }
 
     private void applyPenaltyStats(String id, MutableShipStatsAPI stats) {
         stats.getMaxCombatReadiness().modifyFlat(id, -CR_PENALTY * 0.01f);
+
+    }
+
+    private void unApplyPenaltyStats(String id, MutableShipStatsAPI stats) {
+        stats.getMaxCombatReadiness().unmodify(id);
 
     }
 
@@ -159,27 +177,32 @@ public class nskr_mothership extends BaseHullMod {
         tooltip.addPara("-All weapon ammo increased by "+(int)(AMMO_BONUS)+"%"+"%", pad, y, (int)(AMMO_BONUS)+"%");
         tooltip.addPara("-Fighter replacement rate drain reduced by "+(int)(RATE_DECREASE_MODIFIER)+"%"+"%", 2.0f, y, (int)(RATE_DECREASE_MODIFIER)+"%");
         tooltip.addPara("-Fighter replacement rate recovery increased by "+(int)(RATE_INCREASE_MODIFIER)+"%"+"%", 2.0f, y, (int)(RATE_INCREASE_MODIFIER)+"%");
-        //tooltip.addPara("-Zero flux top speed bonus increased by "+(int)(ZERO_FLUX_BONUS)+"%"+"%", 2.0f, y, (int)(ZERO_FLUX_BONUS)+"%");
 
         tooltip.addSectionHeading("Subroutines", Alignment.MID, pad);
 
-        tooltip.addPara("If this ship is the only Capital-Class vessel in the fleet, certain autonomous subroutines kick in increasing the ships and its fleets performance.", pad, bad, "only");
-        tooltip.addPara("-Maximum combat readiness of the ship increased by "+(int)(CR_BONUS)+"%"+"%", 2.0f, y, (int)(CR_BONUS)+"%");
+        tooltip.addPara("If this ship is the only non-civilian Capital-class vessel in the fleet, certain autonomous subroutines kick in increasing the ships and its fleets performance.", pad, bad, "only");
+        tooltip.addPara("-Maximum combat readiness of the ship and all frigates in the fleet increased by "+(int)(CR_BONUS)+"%"+"%", pad, y, (int)(CR_BONUS)+"%");
         tooltip.addPara("-Deployment cost of all frigates in the fleet reduced by "+"1", 2.0f, y, "1");
 
         //CAMPAIGN
         if (Global.getSector()==null) return;
         if (Global.getSector().getPlayerFleet()==null) return;
 
+        if (getCapitalCount(Global.getSector().getPlayerFleet())<=1){
+            tooltip.addPara("-Subroutine status ACTIVE", pad, y, "ACTIVE");
+        } else {
+            tooltip.addPara("-Subroutine status INACTIVE", pad, bad, "INACTIVE");
+        }
+
         float fuel = getFuel(FUEL_BASE_KEY + ship.getFleetMember().getId())/10f;
 
         tooltip.addSectionHeading("AI Cores", Alignment.MID, pad);
 
-        tooltip.addPara("This ship requires a steady supply of lower level AI Cores to remain at peak performance. Maximum combat readiness decreased by "+(int)(CR_PENALTY)+"%"+"%"+
-                " and subroutines deactivated otherwise.", pad, bad, (int)(CR_PENALTY)+"%");
-        tooltip.addPara("Gamma cores function for "+(int) (GAMMA_CORE_FUEL/10f)+" days, while beta cores function for "+(int) (BETA_CORE_FUEL/10f)+" days. Gamma core are consumed before Beta cores, this happens automatically.", 2.0f, bad, "");
+        tooltip.addPara("This ship requires a steady supply of lower level AI Cores to remain at peak performance. Maximum combat readiness is decreased by "+(int)(CR_PENALTY)+"%"+"%"+
+                " and subroutines are deactivated otherwise.", pad, bad, (int)(CR_PENALTY)+"%");
+        tooltip.addPara("Gamma cores function for "+(int) (GAMMA_CORE_FUEL/10f)+" days, while beta cores function for "+(int) (BETA_CORE_FUEL/10f)+" days. Gamma core are consumed before Beta cores, this happens automatically.", pad, bad, "");
         if (fuel>0f) {
-            tooltip.addPara("-Current time remaining until next AI Core consumed, " + (int) (fuel) + " days", 2.0f, bad, (int) (fuel) + " days");
+            tooltip.addPara("-Current time remaining until next AI Core is consumed, " + (int) (fuel) + " Days", pad, bad, (int) (fuel) + " Days");
         } else {
             tooltip.addPara("CURRENTLY OUT OF AI CORES", 2.0f, bad, "CURRENTLY OUT OF AI CORES");
         }
@@ -205,6 +228,7 @@ public class nskr_mothership extends BaseHullMod {
     private int getCapitalCount(CampaignFleetAPI fleet) {
         int capitalCount = 0;
         for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()){
+            if (m.isCivilian()) continue;
             if (m.isCapital()){
                 capitalCount++;
             }

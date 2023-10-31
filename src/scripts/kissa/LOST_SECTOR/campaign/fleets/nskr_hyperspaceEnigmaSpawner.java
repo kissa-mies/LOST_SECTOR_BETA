@@ -30,17 +30,17 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
     //
     //spawns wandering enigma fleets in hyperspace
     //
-    public static final float SPAWN_CHANCE_PER_DAY = 0.05f;
+    public static final float SPAWN_CHANCE_PER_DAY = 0.04f;
     public static final float MAX_AGE = 120f;
     public static final int MAX_FLEETS = 5;
 
-    public static final float MIN_STRENGTH = 25f;
-    public static final float MAX_STRENGTH = 150f;
+    public static final float MIN_STRENGTH = 20f;
+    public static final float MAX_STRENGTH = 130f;
     public static final float MIN_POWER = 0.53f;
     public static final float MAX_POWER = 2.00f;
 
     public static final float MIN_DISTANCE_FOR_SPAWNS = 20000f;
-    public static final float DISTANCE_FOR_MAX_SPAWNS = 60000f;
+    public static final float DISTANCE_FOR_MAX_SPAWNS = 45000f;
 
     public final ArrayList<String> AMBUSH_NAMES = new ArrayList<>();
     {
@@ -107,7 +107,6 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
             counter.val += amount;
             fleetCounter.val += amount;
         }
-        List<fleetInfo> fleets = fleetUtil.getFleets(FLEET_ARRAY_KEY);
 
         //logic
         if (counter.val > 10f) {
@@ -132,7 +131,9 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
                     float threatMult = nskr_stalkerSpawner.getEnigmaThreatScaling(false);
                     //rng check
                     if (getRandom(PERSISTENT_RANDOM_KEY).nextFloat() < chance * threatMult) {
-                        Vector2f loc = new Vector2f(MathUtils.getPointOnCircumference(pf.getLocation(), (pf.getSensorStrength() * 2.50f), getRandom(PERSISTENT_RANDOM_KEY).nextFloat() * 360.0f));
+                        Vector2f loc = new Vector2f(MathUtils.getPointOnCircumference(pf.getLocation(),
+                                (pf.getSensorStrength() * 4.00f) * mathUtil.getSeededRandomNumberInRange(0.8f, 1.2f, getRandom(PERSISTENT_RANDOM_KEY)),
+                                getRandom(PERSISTENT_RANDOM_KEY).nextFloat() * 360.0f));
                         float power = powerLevel.get(0.2f, MIN_POWER, MAX_POWER);
                         //strong enough check
                         if (power > MIN_POWER) {
@@ -146,6 +147,7 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
 
         //10x a day
         if (fleetCounter.val > 1f) {
+            List<fleetInfo> fleets = fleetUtil.getFleets(FLEET_ARRAY_KEY);
             //FLEET LOGIC
             for (fleetInfo f : fleets) {
                 CampaignFleetAPI fleet = f.fleet;
@@ -206,7 +208,7 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
                         }
                         break;
                     case AMBUSH:
-                        fleetUtil.guardTargetAI(fleet, f, fleetUtil.guardMovementBehaviour.HOLD, fleetUtil.guardAttackBehaviour.HOSTILE, 0.10f);
+                        fleetUtil.guardTargetAI(fleet, f, fleetUtil.guardMovementBehaviour.HOLD, fleetUtil.guardAttackBehaviour.HOSTILE, 0.04f);
                         break;
                     case DORMANT:
                         //nothing lol
@@ -295,7 +297,6 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
         switch (task){
             case INTERCEPT:
                 if (nskr_stalkerSpawner.getEnigmaThreatScaling(true)>0f) {
-                    keys.add(MemFlags.FLEET_IGNORES_OTHER_FLEETS);
                     keys.add(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON);
                     keys.add(MemFlags.MEMORY_KEY_NEVER_AVOID_PLAYER_SLOWLY);
                     keys.add(MemFlags.MEMORY_KEY_MAKE_PREVENT_DISENGAGE);

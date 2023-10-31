@@ -179,7 +179,7 @@ public class nskr_loanShark extends BaseCampaignEventListener implements EveryFr
         keys.add(COLLECTOR_KEY);
 
         simpleFleet simpleFleet = new simpleFleet(pf.getContainingLocation().createToken(pf.getLocation()), "kesteven", combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.ignoreMarketFleetSizeMult = true;
         simpleFleet.maxShipSize = 3;
         simpleFleet.sMods = mathUtil.getSeededRandomNumberInRange(2,3, random);

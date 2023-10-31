@@ -165,9 +165,10 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 				extraEsc = false;
 				break;
 			case "extraDialogueStart":
+				showOptions();
 				extraDialogueStart();
 				extraEsc = true;
-				showOptions();
+				//showOptions();
 				break;
 			case "extraDialogue":
 				int index = Integer.parseInt(memoryMap.get(MemKeys.LOCAL).getString("$option").substring(DIALOG_OPTION_EXTRA_PREFIX.length()));
@@ -1033,48 +1034,48 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 		if (person==jack) {
 			//job 1 start jack
 			if (stage == 0) {
-				if (questUtil.getJob1Tip()!=null) addOption("\"How am I supposed to find them?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
-				addOption("\"Rogue AI?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
-				if (!foughtEnigma) addOption("\"The ships?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
-				addOption("\"Artifact Electronics?\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
-				addOption("\"What about the AI Cores?\"", DIALOG_OPTION_EXTRA_PREFIX+"4");
-				if (foughtEnigma) addOption("\"I've already fought them.\"", DIALOG_OPTION_EXTRA_PREFIX+"5");
+				if (questUtil.getJob1Tip()!=null) dialog.getOptionPanel().addOption("\"How am I supposed to find them?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
+				dialog.getOptionPanel().addOption("\"Rogue AI?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
+				if (!foughtEnigma) dialog.getOptionPanel().addOption("\"The ships?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
+				dialog.getOptionPanel().addOption("\"Artifact Electronics?\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
+				dialog.getOptionPanel().addOption("\"What about the AI Cores?\"", DIALOG_OPTION_EXTRA_PREFIX+"4");
+				if (foughtEnigma) dialog.getOptionPanel().addOption("\"I've already fought them.\"", DIALOG_OPTION_EXTRA_PREFIX+"5");
 			}
 			//job 1 complete jack
 			if (stage == 2) {
-				addOption("\"What are you actually doing with this equipment?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
-				addOption("\"Enigma AI?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
-				addOption("\"Next job?\"", DIALOG_OPTION_EXTRA_PREFIX + "2");
+				dialog.getOptionPanel().addOption("\"What are you actually doing with this equipment?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
+				dialog.getOptionPanel().addOption("\"Enigma AI?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
+				dialog.getOptionPanel().addOption("\"Next job?\"", DIALOG_OPTION_EXTRA_PREFIX + "2");
 			}
 		}
 
 		if (person==alice) {
 			//job 3 start alice
 			if (stage == 7) {
-				addOption("\"How do I know where to go?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
-				addOption("\"So I'm on my own for this?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
-				addOption("\"Is this really necessary?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
-				addOption("\"I'm not doing this.\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
+				dialog.getOptionPanel().addOption("\"How do I know where to go?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
+				dialog.getOptionPanel().addOption("\"So I'm on my own for this?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
+				dialog.getOptionPanel().addOption("\"Is this really necessary?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
+				dialog.getOptionPanel().addOption("\"I'm not doing this.\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
 			}
 			//job 3 complete alice
 			if (stage == 10) {
-				if (questUtil.getCompleted(questStageManager.JOB3_TARGET_DISCOVERED))addOption("\"Know anything about the target?\" (Send over the coordinates)", DIALOG_OPTION_EXTRA_PREFIX + "0");
-				addOption("\"Next job?\"", DIALOG_OPTION_EXTRA_PREFIX + "1");
+				if (questUtil.getCompleted(questStageManager.JOB3_TARGET_DISCOVERED))dialog.getOptionPanel().addOption("\"Know anything about the target?\" (Send over the coordinates)", DIALOG_OPTION_EXTRA_PREFIX + "0");
+				dialog.getOptionPanel().addOption("\"Next job?\"", DIALOG_OPTION_EXTRA_PREFIX + "1");
 			}
 			//job 4 start alice
 			if (stage == 11) {
-				addOption("\"Special Operations fleet?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
-				addOption("\"Possible threats?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
-				addOption("\"Supplies and fuel?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
-				addOption("\"Nicholas Antoine?\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
-				if (eMessenger) addOption("Ask about the \"LZ\" character", DIALOG_OPTION_EXTRA_PREFIX+"4");
+				dialog.getOptionPanel().addOption("\"Special Operations fleet?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
+				dialog.getOptionPanel().addOption("\"Possible threats?\"", DIALOG_OPTION_EXTRA_PREFIX+"1");
+				dialog.getOptionPanel().addOption("\"Supplies and fuel?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
+				dialog.getOptionPanel().addOption("\"Nicholas Antoine?\"", DIALOG_OPTION_EXTRA_PREFIX+"3");
+				if (eMessenger) dialog.getOptionPanel().addOption("Ask about the \"LZ\" character", DIALOG_OPTION_EXTRA_PREFIX+"4");
 			}
 			//job 4 complete alice
 			if (stage == 13) {
-				addOption("\"What was the Operations fleet's goal?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
-				addOption("\"Why are you so interested in this Enigma AI?\"", DIALOG_OPTION_EXTRA_PREFIX + "1");
-				addOption("\"The Artifact?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
-				if (eMessenger) addOption("Ask about the \"LZ\" character", DIALOG_OPTION_EXTRA_PREFIX+"3");
+				dialog.getOptionPanel().addOption("\"What was the Operations fleet's goal?\"", DIALOG_OPTION_EXTRA_PREFIX+"0");
+				dialog.getOptionPanel().addOption("\"Why are you so interested in this Enigma AI?\"", DIALOG_OPTION_EXTRA_PREFIX + "1");
+				dialog.getOptionPanel().addOption("\"The Artifact?\"", DIALOG_OPTION_EXTRA_PREFIX+"2");
+				if (eMessenger) dialog.getOptionPanel().addOption("Ask about the \"LZ\" character", DIALOG_OPTION_EXTRA_PREFIX+"3");
 			}
 		}
 
@@ -1084,7 +1085,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 		text.setFontSmallInsignia();
 		text.setFontInsignia();
 
-		addOption(nskr_stringHelper.getString("back", true), DIALOG_OPTION_PREFIX);
+		dialog.getOptionPanel().addOption(nskr_stringHelper.getString("back", true), DIALOG_OPTION_PREFIX);
 	}
 
 	protected void extraDialogue(int index)

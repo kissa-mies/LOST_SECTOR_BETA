@@ -31,8 +31,6 @@ public class nskr_contracts extends BaseHubMission {
     private PersonAPI person;
     private MarketAPI market;
     private contractInfo contract = null;
-    private boolean newContractEliminate = false;
-    private boolean newContractRecovery = false;
     private List<contractInfo> contracts;
 
     static void log(final String message) {
@@ -40,14 +38,13 @@ public class nskr_contracts extends BaseHubMission {
     }
 
     public nskr_contracts(){
+
         //create the contracts
-        if (!newContractEliminate){
+        if (getContract(CONTRACT_KEY_ELIMINATE)==null){
             setContract(CONTRACT_KEY_ELIMINATE, new contractInfo(contractInfo.contractType.ELIMINATE, contractManager.getRandom(PERSISTENT_RANDOM_KEY_ELIMINATE)));
-            newContractEliminate = true;
         }
-        if (!newContractRecovery){
+        if (getContract(CONTRACT_KEY_RECOVERY)==null){
             setContract(CONTRACT_KEY_RECOVERY, new contractInfo(contractInfo.contractType.SCAVENGE, contractManager.getRandom(PERSISTENT_RANDOM_KEY_RECOVERY)));
-            newContractRecovery = true;
         }
     }
 
@@ -167,8 +164,11 @@ public class nskr_contracts extends BaseHubMission {
         contracts.add(contract);
         contractManager.setContracts(contracts, contractManager.CONTRACT_ARRAY_KEY);
 
-        newContractEliminate = false;
-        newContractRecovery = false;
+        if (contract.type== contractInfo.contractType.ELIMINATE) {
+            setContract(CONTRACT_KEY_ELIMINATE, null);
+        } else {
+            setContract(CONTRACT_KEY_RECOVERY, null);
+        }
 
         currentStage = new Object(); // so that the abort() assumes the mission was successful
         abort();
@@ -177,18 +177,22 @@ public class nskr_contracts extends BaseHubMission {
     @Override
     protected void notifyEnded(){
         super.notifyEnded();
-        newContractEliminate = false;
-        newContractRecovery = false;
+
+        if (contract.type== contractInfo.contractType.ELIMINATE) {
+            setContract(CONTRACT_KEY_ELIMINATE, null);
+        } else {
+            setContract(CONTRACT_KEY_RECOVERY, null);
+        }
     }
 
-    private contractInfo getContract(String id){
+    public static contractInfo getContract(String id){
         Map<String, Object> data = Global.getSector().getPersistentData();
         if (data.containsKey(id)){
             return (contractInfo) data.get(id);
         }
         return null;
     }
-    private contractInfo setContract(String id, contractInfo contract){
+    public static contractInfo setContract(String id, contractInfo contract){
         Map<String, Object> data = Global.getSector().getPersistentData();
 
         data.put(id, contract);

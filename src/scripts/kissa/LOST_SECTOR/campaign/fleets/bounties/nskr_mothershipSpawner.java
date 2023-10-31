@@ -31,7 +31,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
     //
     //spawns
     //
-    public static final String FLEET_NAME = "Fragment";
+    public static final String FLEET_NAME = "Project Helios Remnant";
     public static final String COMMANDER_NAME = "CREATOR-A3401#";
     public static final String FLAGSHIP_VARIANT = "nskr_sunburst_boss";
     public static final String FLAGSHIP_NAME = "TTDS Helios";
@@ -133,7 +133,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
 
         StarSystemAPI system = loc.getStarSystem();
 
-        PlanetAPI a1 = system.addPlanet(PLANET1_ID, loc, "Null", getRandomHabitableType(random),
+        PlanetAPI a1 = system.addPlanet(PLANET1_ID, loc, "Helios", getRandomHabitableType(random),
                 random.nextFloat()*360f,
                 mathUtil.getSeededRandomNumberInRange(40f,75f, random),
                 loc.getRadius() + mathUtil.getSeededRandomNumberInRange(200f,300f, random),
@@ -147,7 +147,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
         }
         a1.addTag(Tags.NOT_RANDOM_MISSION_TARGET);
 
-        PlanetAPI a2 = system.addPlanet(PLANET2_ID, loc, "Void", getRandomHabitableType(random),
+        PlanetAPI a2 = system.addPlanet(PLANET2_ID, loc, "Polaris", getRandomHabitableType(random),
                 random.nextFloat()*360f,
                 mathUtil.getSeededRandomNumberInRange(40f,75f, random),
                 loc.getRadius() + mathUtil.getSeededRandomNumberInRange(400f,600f, random),
@@ -202,7 +202,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
 
     public static void spawnMothershipFleet(SectorEntityToken loc, Random random) {
 
-        float points = MathUtils.getRandomNumberInRange(180f, 190f);
+        float points = MathUtils.getRandomNumberInRange(155f, 160f);
 
         //apply settings
         points *= nskr_modPlugin.getScriptedFleetSizeMult();
@@ -253,10 +253,11 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, FACTION, points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 2;
         simpleFleet.sMods = 1;
-        simpleFleet.name = FLEET_NAME+" "+util.getRandomGreekLetter(random, true);
+        simpleFleet.name = FLEET_NAME;
+        simpleFleet.noFactionInName = true;
         simpleFleet.commander = simpleCaptain.create();
         simpleFleet.flagshipInfo = flagship;
         simpleFleet.assignment = FleetAssignment.ORBIT_PASSIVE;
@@ -460,6 +461,8 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
         ShipRecoverySpecial.PerShipData copy = dsep.getData().ship.clone();
         copy.variant = Global.getSettings().getVariant(copy.variantId).clone();
         copy.variantId = null;
+        //no hidden tooltip
+        copy.getVariant().removeTag(Tags.SHIP_LIMITED_TOOLTIP);
         data.addShip(copy);
 
         Misc.setSalvageSpecial(entity, data);

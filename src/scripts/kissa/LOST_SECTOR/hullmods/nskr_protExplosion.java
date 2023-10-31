@@ -24,13 +24,13 @@ public class nskr_protExplosion {
     //
     //shockwave
     public static final String SPRITE_PATH = "graphics/fx/nskr_blast1.png";
-    public static final Color SHOCKWAVE_COLOR = new Color(255, 43, 86, 30);
+    public static final Color SHOCKWAVE_COLOR = new Color(255, 43, 86, 25);
     public static final float SHOCKWAVE_SIZE = 900f;
     public static final float SHOCKWAVE_SPEED = 600f;
 
     public static final Color PARTICLE_COLOR = new Color(255, 6, 43, 255);
 
-    public static final Color NEBULA_COLOR = new Color(255, 164, 184, 125);
+    public static final Color NEBULA_COLOR = new Color(255, 164, 184, 105);
 
     public static final Color LIGHTNING_CORE_COLOR = new Color(222, 7, 255, 150);
     public static final Color LIGHTNING_FRINGE_COLOR = new Color(255, 6, 6, 100);

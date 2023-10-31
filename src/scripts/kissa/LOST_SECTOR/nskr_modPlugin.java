@@ -94,6 +94,7 @@ public class nskr_modPlugin extends BaseModPlugin {
     public static boolean IS_IRONSHELL = false;
     public static boolean IS_LUNALIB = false;
     public static boolean IS_TAHLAN = false;
+    public static boolean IS_EXOTICA = false;
     public static final String EMGL = "nskr_emglShot_sub";
     public static final String TREMOR = "nskr_tremor1";
     private boolean init = false;
@@ -125,6 +126,7 @@ public class nskr_modPlugin extends BaseModPlugin {
         IS_IRONSHELL = Global.getSettings().getModManager().isModEnabled("timid_xiv");
         IS_LUNALIB = Global.getSettings().getModManager().isModEnabled("lunalib");
         IS_TAHLAN = Global.getSettings().getModManager().isModEnabled("tahlan");
+        IS_EXOTICA = Global.getSettings().getModManager().isModEnabled("exoticatechnologies");
 
         if (!Global.getSettings().getModManager().isModEnabled("MagicLib")){
             throw new IllegalStateException("You aint got MagicLib loaded bruv, you need it to play with LOST_SECTOR");

@@ -273,7 +273,7 @@ public class nskr_interceptManager extends BaseCampaignEventListener implements 
         keys.add(ARO_FLEET_KEY);
 
         simpleFleet simpleFleet = new simpleFleet(pf.getContainingLocation().createToken(pf.getLocation()), Factions.LUDDIC_CHURCH, combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 4;
         simpleFleet.sMods = mathUtil.getSeededRandomNumberInRange(2,3, random);
         simpleFleet.name = ARO_FLEET_NAME;
@@ -318,7 +318,7 @@ public class nskr_interceptManager extends BaseCampaignEventListener implements 
         keys.add(MESSENGER_FLEET_KEY);
 
         simpleFleet simpleFleet = new simpleFleet(pf.getContainingLocation().createToken(pf.getLocation()), Factions.PIRATES, combatPoints, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_MEDIUM;
+        //simpleFleet.type = FleetTypes.PATROL_MEDIUM;
         simpleFleet.maxShipSize = 3;
         simpleFleet.name = MESSENGER_FLEET_NAME;
         simpleFleet.ignoreMarketFleetSizeMult = true;

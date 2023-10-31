@@ -13,7 +13,7 @@ public class nskr_stupidFuckingHax extends BaseHullMod {
 	//does nothing lol
 	//script for EM core
 
-	Color lol = new Color(70, 101, 255);
+	Color lol = new Color(255, 20, 145);
 
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 

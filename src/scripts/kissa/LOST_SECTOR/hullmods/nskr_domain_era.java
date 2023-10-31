@@ -87,24 +87,35 @@ public class nskr_domain_era extends BaseHullMod {
 		Color y = Misc.getHighlightColor();
 		Color bad = util.TT_ORANGE;
 
-		tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
 		//SO penalty
 		if (ship.getMutableStats().getVariant().hasHullMod(HullMods.SAFETYOVERRIDES)) {
+			tooltip.addSectionHeading("Warning", Alignment.MID, pad);
+
 			tooltip.addPara("-Safety Overrides installed, performance decreased", pad, bad, "");
 			tooltip.addPara("-Maximum combat readiness of the ship is decreased by " + (int) (CR_PENALTY) + "%" + "%", 2.0f, bad, (int) (CR_PENALTY) + "%");
 		}
 
+
+
 		ArrayList<String> unlocks = nskr_enigmaHullmodListener.getUnlocks(nskr_enigmaHullmodListener.UNLOCKS_MEM_KEY);
 		//everything unlocked
 		if (unlocks.size() < nskr_enigmaHullmodListener.DEFAULT_KEYS.size()){
-			tooltip.addPara("More information can be acquired if ships of this make are deployed in battle, the more you deploy the faster the results will appear.", pad, tc, "");
+			tooltip.addSectionHeading("Details", Alignment.MID, pad);
+
+			tooltip.addPara("More information can be acquired if hulls of this make are deployed in battle, the more hulls you deploy the faster the results will appear.", pad, tc, "");
 		}
 
-		tooltip.addPara("", 0.0f, tc, "");
+		//tooltip.addPara("", 0.0f, tc, "");
+		if (unlocks.size()>0){
+			tooltip.addSectionHeading("Stats", Alignment.MID, pad);
+		}
 
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#1")) {
-			tooltip.addPara("-Supply use for maintenance increased by "+"150"+"%"+"%", 2.0f, bad, "150"+"%");
+			tooltip.addPara("-Supply use for maintenance increased by "+"150"+"%"+"%", pad, bad, "150"+"%");
+		}
+		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#5")) {
+			tooltip.addPara("-Combat readiness degrades "+(int)(DEGRADE_INCREASE_PERCENT)+"%"+"% faster in combat", 2.0f, bad, (int)(DEGRADE_INCREASE_PERCENT)+"%");
 		}
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#2")) {
 			tooltip.addPara("-Maneuverability is reduced by "+(int)(SPEED_PENALTY*2f)+"%"+"%", 2.0f, bad, (int)(SPEED_PENALTY*2f)+"%");
@@ -114,9 +125,6 @@ public class nskr_domain_era extends BaseHullMod {
 		}
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#4")) {
 			tooltip.addPara("-Top speed is reduced by an additional "+(int)(SPEED_PENALTY)+"%"+"%", 2.0f, bad, (int)(SPEED_PENALTY)+"%");
-		}
-		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#5")) {
-			tooltip.addPara("-Combat readiness degrades "+(int)(DEGRADE_INCREASE_PERCENT)+"%"+"% faster in combat", 2.0f, bad, (int)(DEGRADE_INCREASE_PERCENT)+"%");
 		}
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#6")) {
 			tooltip.addPara("-Non-missile weapon flux use reduced by "+(int)(FLUX_BONUS)+"%"+"%", 2.0f, y, (int)(FLUX_BONUS)+"%");
@@ -128,7 +136,7 @@ public class nskr_domain_era extends BaseHullMod {
 			tooltip.addPara("-EMP damage taken reduced by "+(int)(EMP_REDUCTION)+"%"+"%", 2.0f, y, (int)(EMP_REDUCTION)+"%");
 		}
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#9")) {
-			tooltip.addPara("-Damage against capital-class vessels increased by "+(int)(FUCK_CAPITALS)+"%"+"%", 2.0f, y, (int)(FUCK_CAPITALS)+"%");
+			tooltip.addPara("-Damage against Capital-class vessels increased by "+(int)(FUCK_CAPITALS)+"%"+"%", 2.0f, y, (int)(FUCK_CAPITALS)+"%");
 		}
 		if (unlocks.contains(nskr_enigmaHullmodListener.KEY_BASE+"#10")) {
 			tooltip.addPara("-Weapon ordnance point cost reduced by "+"1/2/4"+" points based on size", 2.0f, y, "1/2/4");

@@ -19,6 +19,7 @@ You gain %s of your monthly fleet expenditures (such as crew pay) as a trickleba
 "EM Core","nskr_emCore",,,,,,,,"TRUE",,0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_stupidFuckingHax","How are you reading this?",,,"graphics/hullmods/terminator_core.png"
 ,,,,,,,,,,,,,,,,,,,
 "Mothership","nskr_mothership",,,,,,,,"TRUE",,0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_mothership","The vast nature of the ship has some impact on the performance of certain systems.",,,"graphics/hullmods/nskr_mothership.png"
+"Mothership Stats","nskr_mothership_frigate",,,,,,,,"TRUE","TRUE",0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_mothershipFrigateStats","The vast nature of the ship has some impact on the performance of certain systems.",,,"graphics/hullmods/nskr_mothership.png"
 "Causality Core","nskr_causality",,,,,,,,"TRUE",,0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_causality","Energy absorbed from time reversal of incoming projectiles is temporarily stored in the ship giving increasing buffs.",,,"graphics/hullmods/nskr_causality.png"
 "Adaptive Protocol","nskr_protocol",,,,,,,,"TRUE",,0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_protocol","This ship can switch to one of three modes, significantly enhancing its engines, weapons, or defenses. Individual mode effects require %s to reach full strength.","Can swap modes to improve weapons, engines, or defenses.",,"graphics/hullmods/nskr_protocol.png"
 "Antimatter Payload","nskr_aed",,,,,,,,"TRUE",,0,0,0,0,"scripts.kissa.LOST_SECTOR.hullmods.nskr_aed","[DATABASE ERROR:451]OOOOOOoooooooooooooooo E ee

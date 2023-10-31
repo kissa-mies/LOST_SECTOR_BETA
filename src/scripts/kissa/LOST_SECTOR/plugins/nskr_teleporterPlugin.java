@@ -51,11 +51,11 @@ public class nskr_teleporterPlugin extends BaseEveryFrameCombatPlugin {
         for (Iterator<CombatEntityAPI> iter = TELEPORT.keySet().iterator(); iter.hasNext();){
             CombatEntityAPI C = iter.next();
 
-            if(C==null || MathUtils.isWithinRange(C.getLocation(), TELEPORT.get(C), 30f)){
+            if(C==null || MathUtils.isWithinRange(C.getLocation(), TELEPORT.get(C), 50f)){
                 iter.remove();
             } else {
-                float x=10*amount*(TELEPORT.get(C).x-C.getLocation().x);
-                float y=10*amount*(TELEPORT.get(C).y-C.getLocation().y);
+                float x = 10*amount*(TELEPORT.get(C).x-C.getLocation().x);
+                float y = 10*amount*(TELEPORT.get(C).y-C.getLocation().y);
                 Vector2f targetPos=new Vector2f(C.getLocation().x+x,C.getLocation().y+y);
                 if (C instanceof ShipAPI && MagicRender.screenCheck(0.15f, targetPos)){
                     //afterimage

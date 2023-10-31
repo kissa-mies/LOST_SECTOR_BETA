@@ -28,7 +28,7 @@ public class nskr_blacksiteSpawner {
     //List of stuff to spawn and their count
     public static final List<Pair<String, Integer>> STATION_SPAWNS = new ArrayList<>();
     static {
-        STATION_SPAWNS.add(new Pair<>("nskr_blacksite", 10));
+        STATION_SPAWNS.add(new Pair<>("nskr_blacksite", 12));
     }
     //Weights for the different types of locations our things can spawn in
     public static final LinkedHashMap<BaseThemeGenerator.LocationType, Float> WEIGHTS = new LinkedHashMap<>();

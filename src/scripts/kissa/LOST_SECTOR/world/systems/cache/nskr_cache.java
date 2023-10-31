@@ -342,7 +342,7 @@ public class nskr_cache {
 
         //fleet
         simpleFleet simpleFleet = new simpleFleet(loc, Factions.DERELICT, points, keys, random);
-        simpleFleet.type = FleetTypes.PATROL_LARGE;
+        //simpleFleet.type = FleetTypes.PATROL_LARGE;
         simpleFleet.maxShipSize = 3;
         simpleFleet.sMods = 3;
         simpleFleet.ignoreMarketFleetSizeMult = true;
@@ -360,7 +360,16 @@ public class nskr_cache {
         fleet.getMemoryWithoutUpdate().set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, new CacheGuardFIDConfig());
 
         //set faction correctly
-        fleet.setFaction(Factions.DERELICT, true);
+        if (nskr_modPlugin.IS_EXOTICA) {
+            //captains
+            fleet.setFaction(Factions.DERELICT, true);
+            //for correct upgrades and exotics
+            fleet.setFaction("enigma", false);
+        } else {
+            fleet.setFaction(Factions.DERELICT, true);
+        }
+
+
 
         //around player
         fleet.setLocation(loc.getLocation().x, loc.getLocation().y);
@@ -509,6 +518,8 @@ public class nskr_cache {
         ShipRecoverySpecial.PerShipData copy = dsep.getData().ship.clone();
         copy.variant = Global.getSettings().getVariant(copy.variantId).clone();
         copy.variantId = null;
+        //no hidden tooltip
+        copy.getVariant().removeTag(Tags.SHIP_LIMITED_TOOLTIP);
         data.addShip(copy);
 
         Misc.setSalvageSpecial(entity, data);

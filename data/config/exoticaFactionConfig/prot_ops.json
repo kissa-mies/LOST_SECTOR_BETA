@@ -9,7 +9,7 @@
     "SpooledFeeders": 0.5,
     "FullMetalSalvo": 0.5,
     "HyperspecLPC": 0.3,
-    "AnomalousConjuration": 0.1,
+    #"AnomalousConjuration": 0.1,
   },
   "allowedUpgrades": {
     "temporalConduits": 1.5,

@@ -1,3 +1,10 @@
+Version 0.6.0b
+
+- Some visual changes and updates
+
+- Reduce Mega Flux Rocket Rate Of Fire to 14s->17.5s
+
+- Fixed a crash when hitting ESC on certain parts of the mothership fleet dialog
 
 Version 0.6.0a
 

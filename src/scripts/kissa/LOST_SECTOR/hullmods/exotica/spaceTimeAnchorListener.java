@@ -49,7 +49,7 @@ public class spaceTimeAnchorListener implements DamageTakenModifier, Advanceable
         }
 
         float chance = level*0.015f;
-        if (Math.random()<chance) {
+        if (Math.random()<chance * (Global.getCombatEngine().getElapsedInLastFrame()*60f)) {
             Vector2f particlePos, particleVel;
 
             particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), (float)Math.random()*(ship.getCollisionRadius()*2f));

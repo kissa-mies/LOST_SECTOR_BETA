@@ -21,12 +21,14 @@ import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
+import scripts.kissa.LOST_SECTOR.util.blastSpriteCreator;
 import scripts.kissa.LOST_SECTOR.util.combatUtil;
+import scripts.kissa.LOST_SECTOR.util.mathUtil;
 
 public class nskr_temporalStats extends BaseShipSystemScript {
 
     //Phase stuff
-    public static final float SHIP_ALPHA_MULT = 0.25f;
+    public static final float SHIP_ALPHA_MULT = 0.0f;
     public static final float MAX_TIME_MULT = 5f;
 
     //DMG (for some reason smaller number = more DMG -thanks Cycerin)
@@ -42,7 +44,8 @@ public class nskr_temporalStats extends BaseShipSystemScript {
     public static final Color AFTERIMAGE_COLOR = new Color(179, 59, 59, 50);
     public static final Color EXPLOSION_COLOR = new Color(160, 55, 64);
     public static final Color EMP_COLOR = new Color(112, 31, 204);
-    public static final Color LENS_FLARE_OUTER_COLOR = new Color(150, 37, 25, 255);
+    public static final Color SHOCKWAVE_COLOR1 = new Color(245, 12, 94,30);
+    public static final Color SHOCKWAVE_COLOR2 = new Color(220, 34, 77,25);
     public static final Color LENS_FLARE_CORE_COLOR = new Color(255, 122, 122, 250);
 
     public static final float EXPLOSION_EMP_DAMAGE_AMOUNT = 3000f;
@@ -63,12 +66,13 @@ public class nskr_temporalStats extends BaseShipSystemScript {
     public static final float EXPLOSION_FORCE_VS_ALLIES_MODIFIER = .5f;
     //sound
     public static final String SOUND_ID = "nskr_temporall_off";
+    public static final String SPRITE_PATH_SHOCKWAVE = "graphics/fx/nskr_blast_soft.png";
+    public static final String SPRITE_PATH_GLOW = "graphics/fx/nskr_glow1.png";
 
     // Local variables, don't touch these
     private boolean Explosions = true;
     private StandardLight light;
     private WaveDistortion wave;
-    private IntervalUtil interval;
     float timer = 0f;
     private boolean updated = false;
 
@@ -80,6 +84,7 @@ public class nskr_temporalStats extends BaseShipSystemScript {
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
         ShipAPI ship = null;
         boolean player = false;
+        CombatEngineAPI engine = Global.getCombatEngine();
         if (stats.getEntity() instanceof ShipAPI) {
             ship = (ShipAPI) stats.getEntity();
             player = ship == Global.getCombatEngine().getPlayerShip();
@@ -119,6 +124,26 @@ public class nskr_temporalStats extends BaseShipSystemScript {
 
             stats.getMaxSpeed().modifyFlat(id, 200f * effectLevel);
             stats.getAcceleration().modifyFlat(id, 2000f * effectLevel);
+
+            //ACTIVE FX
+            if (Math.random() < 1.0f * (engine.getElapsedInLastFrame()*60f)) {
+                Vector2f particlePos, particleVel;
+
+                particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), (float) Math.random() * (ship.getCollisionRadius() * 0.75f));
+                particleVel = Vector2f.sub(ship.getLocation(), particlePos, null);
+                particleVel = mathUtil.scaleVector(particleVel, 0.5f);
+                float dispersion = 50f;
+                particleVel.x += MathUtils.getRandomNumberInRange(-dispersion, dispersion);
+                particleVel.y += MathUtils.getRandomNumberInRange(-dispersion, dispersion);
+
+                engine.addNebulaParticle(particlePos, particleVel,
+                        MathUtils.getRandomNumberInRange(90f,110f), 0.8f, 0.5f, 1f, 0.75f, EXPLOSION_COLOR);
+                if (Math.random()<0.10f) {
+                    engine.addNegativeNebulaParticle(particlePos, particleVel,
+                            MathUtils.getRandomNumberInRange(90f, 110f), 0.8f, 0.5f, 1f, 0.75f, EXPLOSION_COLOR);
+                }
+            }
+
         } else ship.getSystem().forceState(ShipSystemAPI.SystemState.OUT,0.1f);
 
 
@@ -165,9 +190,6 @@ public class nskr_temporalStats extends BaseShipSystemScript {
             ship.setPhased(false);
             ship.setExtraAlphaMult(1f);
 
-
-            CombatEngineAPI engine = Global.getCombatEngine();
-
                 stats.getMaxSpeed().unmodify(id);
                 stats.getAcceleration().unmodify(id);
 
@@ -194,19 +216,31 @@ public class nskr_temporalStats extends BaseShipSystemScript {
                                 LENS_FLARE_CORE_COLOR);
                     }
 
-                    //lens flare fx
-                    //MagicLensFlare.createSharpFlare(
-                    //        engine,
-                    //        ship,
-                    //        loc,
-                    //        50f,
-                    //        750f,
-                    //        ship.getFacing(),
-                    //        LENS_FLARE_OUTER_COLOR,
-                    //        LENS_FLARE_CORE_COLOR
-                    //);
+                    //shockwaves
+                    blastSpriteCreator.blastSpriteListener shockwave1 = new blastSpriteCreator.blastSpriteListener(ship, ship.getLocation(), 2.00f, EXPLOSION_PUSH_RADIUS-175f, SHOCKWAVE_COLOR1);
+                    shockwave1.customSpritePath = SPRITE_PATH_SHOCKWAVE;
+                    shockwave1.sizeEaseOutSine = true;
+                    shockwave1.alphaEaseInSine = true;
+                    shockwave1.endSizeMult = 1.05f;
+                    ship.addListener(shockwave1);
 
-                    //light fx
+                    blastSpriteCreator.blastSpriteListener shockwave2 = new blastSpriteCreator.blastSpriteListener(ship, ship.getLocation(), 2.50f, EXPLOSION_PUSH_RADIUS, SHOCKWAVE_COLOR2);
+                    shockwave2.customSpritePath = SPRITE_PATH_SHOCKWAVE;
+                    shockwave2.sizeEaseOutSine = true;
+                    shockwave2.alphaEaseInSine = true;
+                    shockwave2.endSizeMult = 1.05f;
+                    ship.addListener(shockwave2);
+
+                    //glow
+                    blastSpriteCreator.blastSpriteListener glow = new blastSpriteCreator.blastSpriteListener(ship, ship.getLocation(), 0.40f, EXPLOSION_PUSH_RADIUS, LENS_FLARE_CORE_COLOR);
+                    glow.customSpritePath = SPRITE_PATH_GLOW;
+                    glow.sizeEaseOutSine = true;
+                    glow.alphaEaseOutSine = true;
+                    glow.endSizeMult = 0.9f;
+                    glow.additive = true;
+                    ship.addListener(glow);
+
+                    //light
                     light = new StandardLight();
                     light.setLocation(loc);
                     light.setIntensity(2.0f);

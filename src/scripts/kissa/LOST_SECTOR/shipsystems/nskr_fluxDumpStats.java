@@ -75,7 +75,7 @@ public class nskr_fluxDumpStats extends BaseShipSystemScript {
 
 		//inhale
 		Vector2f particlePos, particleVel;
-		int numParticlesThisFrame = Math.round(MAX_PARTICLES_PER_FRAME*mult);
+		int numParticlesThisFrame = Math.round((MAX_PARTICLES_PER_FRAME*mult) * (engine.getElapsedInLastFrame()*60f));
 		for (int x = 0; x < numParticlesThisFrame; x++) {
 			particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), PARTICLE_RADIUS);
 			particleVel = Vector2f.sub(ship.getLocation(), particlePos, null);

@@ -227,7 +227,7 @@ public class nskr_rage_mod extends BaseHullMod {
 			//spew out particles
 			if (data.glitchDurationRemaining <= 0f){
 				Vector2f particlePos, particleVel;
-				int numParticlesThisFrame = Math.round((float)MAX_PARTICLES_PER_FRAME/4);
+				int numParticlesThisFrame = Math.round((MAX_PARTICLES_PER_FRAME/4f * (engine.getElapsedInLastFrame()*60f)));
 				for (int x = 0; x < numParticlesThisFrame; x++) {
 					particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), (float)Math.random()*(ship.getCollisionRadius()-50f));
 					particleVel = Vector2f.sub(particlePos, ship.getLocation(), null);
@@ -293,7 +293,7 @@ public class nskr_rage_mod extends BaseHullMod {
 
 			//INHALE EFFECT
 			Vector2f particlePos, particleVel;
-			int numParticlesThisFrame = Math.round(MAX_PARTICLES_PER_FRAME);
+			int numParticlesThisFrame = Math.round(MAX_PARTICLES_PER_FRAME * (engine.getElapsedInLastFrame()*60f));
 			for (int x = 0; x < numParticlesThisFrame; x++) {
 				particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), PARTICLE_RADIUS);
 				particleVel = Vector2f.sub(ship.getLocation(), particlePos, null);

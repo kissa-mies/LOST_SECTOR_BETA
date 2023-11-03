@@ -165,7 +165,7 @@ public class nskr_advanceStats extends BaseShipSystemScript {
 
 				//inhale (modified from cycerin)
 				Vector2f particlePos, particleVel;
-				int numParticlesThisFrame = Math.round(MAX_PARTICLES_PER_FRAME);
+				int numParticlesThisFrame = Math.round(MAX_PARTICLES_PER_FRAME * (engine.getElapsedInLastFrame()*60f));
 				for (int x = 0; x < numParticlesThisFrame; x++) {
 					if (dState>2) PARTICLE_RADIUS = 100f;
 					particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), PARTICLE_RADIUS);

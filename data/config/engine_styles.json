@@ -5,7 +5,7 @@
 
 	"NSKR_TECHAUG":{
 		"engineColor":[15, 31, 255, 255],
-		"engineCampaignColor":[123, 126, 224, 105],
+		"engineCampaignColor":[255,174,25, 105],
 		"contrailParticleSizeMult":4,
 		"contrailParticleDuration":1,
 		"contrailParticleFinalSizeMult":2.5,
@@ -25,13 +25,13 @@
 		"contrailMaxSpeedMult":0.5,
 		"contrailAngularVelocityMult":0.5,
 		"contrailColor":[50,50,50,50],
-		"contrailCampaignColor":[255, 82, 30,75],
+		"contrailCampaignColor":[255,190,26,125],
 		"glowAlternateColor":[255, 189, 89, 105],
 		"type":"SMOKE" # GLOW or SMOKE
 	},
 	"NSKR_TECHP":{
 		"engineColor":[156, 205, 255,255],
-		"engineCampaignColor":[156, 205, 255,255],
+		"engineCampaignColor":[255, 89, 74,255],
 		"contrailParticleSizeMult":4,
 		"contrailParticleDuration":2,
 		"contrailParticleFinalSizeMult":2.5,
@@ -53,7 +53,7 @@
 		"contrailMaxSpeedMult":0.5,
 		"contrailAngularVelocityMult":0.5,
 		"contrailColor":[96, 125, 196, 60],
-		"contrailCampaignColor":[255, 89, 74,75],
+		"contrailCampaignColor":[156, 205, 255,75],
 		"glowAlternateColor":[255, 89, 74, 200],
 		"glowSprite":"graphics/fx/nskr_prot_engine_scroll.png",
 		"glowOutline":"graphics/fx/nskr_prot_engine_outline.png",

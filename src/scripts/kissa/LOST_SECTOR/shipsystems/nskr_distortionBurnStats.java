@@ -58,7 +58,7 @@ public class nskr_distortionBurnStats extends BaseShipSystemScript {
 
         //PARTICLES
         Vector2f particlePos, particleVel;
-        for (int x = 0; x < particlesPerFrame;) {
+        for (int x = 0; x < Math.round(particlesPerFrame * (Global.getCombatEngine().getElapsedInLastFrame()*60f));) {
             particlePos = ship.getLocation();
             for (int y = 0; y < 100; y++) {
                 float rArc = arc* MathUtils.getRandomNumberInRange(0.8f,1.2f);

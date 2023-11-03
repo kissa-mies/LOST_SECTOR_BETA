@@ -155,6 +155,18 @@ public class nskr_causality extends BaseHullMod {
 				PostProcessShader.setSaturation(false, mathUtil.lerp(1f, 0.5f, effectSqrt));
 
 				//engine.addFloatingText(ship.getLocation(), "test " + effectSqrt, 20f, Color.cyan, ship, 0.5f, 1.0f);
+
+				//SOUND LOOPS
+				float min = 4000f;
+				float max = 8000f;
+				if (data.energy>min){
+					float modSynth = mathUtil.normalize(MathUtils.clamp(data.energy, min, max), min, max);
+					float mult = 1.5f;
+					float modNoise = mathUtil.normalize(MathUtils.clamp(data.energy, min*mult, max*mult), min*mult, max*mult);
+
+					Global.getSoundPlayer().playLoop("nskr_eternity_loop", ship,1f, 0.60f*modSynth, ship.getLocation(), new Vector2f());
+					Global.getSoundPlayer().playLoop("nskr_eternity_loop_noise", ship,0.8f, 0.75f*modNoise, ship.getLocation(), new Vector2f());
+				}
 			}
 			int red = COLOR4.getRed();
 			int green = COLOR4.getGreen();

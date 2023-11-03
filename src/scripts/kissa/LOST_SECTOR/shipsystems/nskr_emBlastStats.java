@@ -81,7 +81,7 @@ public class nskr_emBlastStats extends BaseShipSystemScript {
             //PARTICLES
             //INHALE EFFECT
             Vector2f particlePos, particleVel;
-            if (Math.random()<effectLevel/2f) {
+            if (Math.random()<(effectLevel/2f) * (engine.getElapsedInLastFrame()*60f)) {
                 particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), 75f);
                 particleVel = Vector2f.sub(ship.getLocation(), particlePos, null);
                 Global.getCombatEngine().addSmokeParticle(particlePos, particleVel, 4f, 0.7f, 0.5f,

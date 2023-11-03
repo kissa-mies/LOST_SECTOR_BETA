@@ -391,4 +391,12 @@
 	[
 		{"file":"sounds/nskr_fx/nskr_omniload_activate.ogg","pitch":1.0,"volume":0.85},
 	],
+	"nskr_eternity_loop":
+	[
+		{"file":"sounds/nskr_fx/nskr_eternity_loop.ogg","pitch":1.0,"volume":1.00},
+	],
+	"nskr_eternity_loop_noise":
+	[
+		{"file":"sounds/nskr_fx/nskr_eternity_loop_noise.ogg","pitch":1.0,"volume":1.00},
+	],
 }

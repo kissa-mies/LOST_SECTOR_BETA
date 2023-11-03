@@ -56,7 +56,7 @@ public class blastSpriteCreator {
             this.duration = duration;
             this.elapsed = duration;
             this.size = size;
-            this.point = point;
+            this.point = new Vector2f(point.x, point.y);
             this.color = color;
             colorOut = color;
             angle = 360f*(float)Math.random();

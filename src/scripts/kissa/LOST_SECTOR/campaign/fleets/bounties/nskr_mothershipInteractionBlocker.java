@@ -31,7 +31,7 @@ public class nskr_mothershipInteractionBlocker implements InteractionDialogPlugi
     public void init(InteractionDialogAPI dialog) {
         this.dialog = dialog;
 
-        dialog.setOptionOnEscape("Leave", OptionId.LEAVE);
+        //dialog.setOptionOnEscape("Leave", OptionId.LEAVE);
 
         text = dialog.getTextPanel();
         options = dialog.getOptionPanel();

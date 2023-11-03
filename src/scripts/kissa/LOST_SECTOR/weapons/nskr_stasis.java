@@ -172,7 +172,7 @@ public class nskr_stasis {
             ship.setJitter(ship, JITTER_COLOR, 1f, 4, 0f, 15f);
 
             //particles
-            if (Math.random()<1.00f) {
+            if (Math.random()<1.00f * (engine.getElapsedInLastFrame()*60f)) {
                 Vector2f particlePos, particleVel;
                 particlePos = MathUtils.getRandomPointOnCircumference(ship.getLocation(), (ship.getCollisionRadius() + 50f) * (float)Math.random());
                 particleVel = Vector2f.sub(ship.getLocation(), particlePos, null);

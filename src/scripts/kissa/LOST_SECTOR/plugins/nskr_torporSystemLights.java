@@ -17,6 +17,11 @@ public class nskr_torporSystemLights implements EveryFrameWeaponEffectPlugin {
         ShipAPI ship = weapon.getShip();
         AnimationAPI theAnim = weapon.getAnimation();
 
+        if (!ship.isAlive()) {
+            theAnim.setFrame(0);
+            return;
+        }
+
         if (stasisWeapon==null) {
             for (WeaponAPI w : ship.getAllWeapons()) {
                 if (w.getId() == null) continue;

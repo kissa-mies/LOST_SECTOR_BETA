@@ -16,6 +16,7 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.intel.bar.events.BarEventManager;
 import com.fs.starfarer.api.impl.campaign.procgen.ProcgenUsedNames;
+import com.fs.starfarer.api.impl.campaign.rulecmd.Nex_TransferMarket;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 import exerelin.campaign.SectorManager;
 import lunalib.lunaSettings.LunaSettings;
@@ -54,6 +55,7 @@ import scripts.kissa.LOST_SECTOR.world.systems.outpost.nskr_outpost;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -139,7 +141,6 @@ public class nskr_modPlugin extends BaseModPlugin {
         }
 
         if (IS_NEXELERIN) {
-            //todo WAIT FOR NEXT NEX VERSION
             //NEX HACKS
             //List<String> baned = Nex_TransferMarket.NO_TRANSFER_FACTIONS;
             //if (!baned.contains(ids.ENIGMA_FACTION_ID)){

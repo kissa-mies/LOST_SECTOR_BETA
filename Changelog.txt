@@ -1,3 +1,7 @@
+Version 0.6.0c
+
+- Fixed a possible crash when blacksite fleets couldn't find a random market
+
 Version 0.6.0b
 
 - Some visual changes and updates

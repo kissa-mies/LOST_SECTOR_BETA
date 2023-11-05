@@ -234,4 +234,6 @@ public class nskr_kestevenExportManager extends BaseCampaignEventListener implem
         Map<String, Object> data = Global.getSector().getPersistentData();
         data.put(nskr_licensingFees.TOTAL_KEY, amount);
     }
+
+
 }

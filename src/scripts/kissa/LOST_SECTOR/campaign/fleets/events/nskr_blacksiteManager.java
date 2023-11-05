@@ -185,7 +185,11 @@ public class nskr_blacksiteManager extends BaseCampaignEventListener implements 
                             if (fleet.getCurrentAssignment().getAssignment() != FleetAssignment.GO_TO_LOCATION_AND_DESPAWN) {
                                 SectorEntityToken market = questUtil.getRandomFactionMarket(getRandom(), fleet.getFaction().getId());
                                 fleet.clearAssignments();
-                                fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, market, Float.MAX_VALUE, "returning to " + market.getName());
+                                if (market==null) {
+                                    fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, f.home, Float.MAX_VALUE, "standing down");
+                                }else {
+                                    fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, market, Float.MAX_VALUE, "returning to " + market.getName());
+                                }
                             }
                         }
                     }

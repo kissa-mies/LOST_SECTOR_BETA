@@ -365,24 +365,28 @@ public class util {
     }
 
     public static SectorEntityToken getRandomMarket(Random random, boolean allowPiratesEtc){
-        SectorEntityToken loc = null;
-        StarSystemAPI system = null;
-        while (loc == null) {
-            system = getRandomSystemWithMarket(random);
-            ArrayList<MarketAPI> markets = new ArrayList<>();
+
+        ArrayList<MarketAPI> markets = new ArrayList<>();
+        for (StarSystemAPI system : Global.getSector().getStarSystems()){
             for (SectorEntityToken e : system.getAllEntities()){
                 if (e.getMarket() == null) continue;
+                if (e.getMarket().getFactionId() == null) continue;
                 if (e.getMarket().isPlanetConditionMarketOnly()) continue;
                 if (e.getMarket().isHidden()) continue;
+                if (e.getMarket().getFactionId().equals(Factions.NEUTRAL)) continue;
                 if (!allowPiratesEtc) {
                     if (e.getMarket().getFaction().getId().equals(Factions.PIRATES) || e.getMarket().getFaction().getId().equals(Factions.LUDDIC_PATH)) continue;
                 }
                 markets.add(e.getMarket());
             }
-            MarketAPI randomMarket = markets.get(mathUtil.getSeededRandomNumberInRange(0, markets.size()-1, random));
-            loc = randomMarket.getPrimaryEntity();
         }
-        return loc;
+        if (markets.isEmpty()){
+            log("ERROR no random market in the sector, what...");
+            return null;
+        }
+        MarketAPI randomMarket = markets.get(mathUtil.getSeededRandomNumberInRange(0, markets.size()-1, random));
+
+        return randomMarket.getPrimaryEntity();
     }
 
     public static boolean hasGate(StarSystemAPI sys){

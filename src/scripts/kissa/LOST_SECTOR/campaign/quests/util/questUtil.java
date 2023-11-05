@@ -305,9 +305,11 @@ public class questUtil {
     public static boolean hasFactionMarket(StarSystemAPI sys, String faction){
         boolean market = false;
         for (SectorEntityToken e : sys.getAllEntities()){
-            if (e.getMarket()==null) continue;
+            if (e.getMarket() == null) continue;
+            if (e.getMarket().getFactionId() == null) continue;
             if (e.getMarket().isPlanetConditionMarketOnly()) continue;
             if (e.getMarket().isHidden()) continue;
+            if (e.getMarket().getFactionId().equals(Factions.NEUTRAL)) continue;
             if (e.getMarket().getFaction().getId().equals(faction)){
                 market = true;
                 break;

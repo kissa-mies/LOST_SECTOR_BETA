@@ -124,7 +124,7 @@ public class questUtil {
         simpleSystem simpleSystem = new simpleSystem(random, 2);
         simpleSystem.maxDistance = 27500f;
         simpleSystem.blacklistTags = banTags;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         if (!simpleSystem.get().isEmpty()) {
             StarSystemAPI pick = simpleSystem.pick();
@@ -147,7 +147,7 @@ public class questUtil {
         simpleSystem simpleSystem = new simpleSystem(random, 2);
         simpleSystem.minDistance = 32500f;
         simpleSystem.blacklistTags = banTags;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
         simpleSystem.minStarsInConstellation = 2;
 
         if (!simpleSystem.get().isEmpty()) {
@@ -168,7 +168,7 @@ public class questUtil {
 
         simpleSystem simpleSystem = new simpleSystem(random, 1);
         simpleSystem.blacklistSystems = banSys;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         //First, get all the valid systems and put them in a separate list
         List<StarSystemAPI> validSystems = new ArrayList<>();
@@ -207,7 +207,7 @@ public class questUtil {
         simpleSystem simpleSystem = new simpleSystem(random, minPlanets);
         simpleSystem.blacklistSystems = banSys;
         simpleSystem.allowNeutron = true;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         //First, get all the valid systems and put them in a separate list
         List<StarSystemAPI> validSystems = new ArrayList<>();
@@ -241,7 +241,7 @@ public class questUtil {
 
         simpleSystem simpleSystem = new simpleSystem(random, 1);
         simpleSystem.pickEntities = entities;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         if (!simpleSystem.get().isEmpty()) {
             StarSystemAPI pick = simpleSystem.pick();

@@ -142,10 +142,12 @@ public class nskr_modPlugin extends BaseModPlugin {
 
         if (IS_NEXELERIN) {
             //NEX HACKS
-            //List<String> baned = Nex_TransferMarket.NO_TRANSFER_FACTIONS;
-            //if (!baned.contains(ids.ENIGMA_FACTION_ID)){
-            //    baned.add(ids.ENIGMA_FACTION_ID);
-            //}
+            try {
+                List<String> baned = Nex_TransferMarket.NO_TRANSFER_FACTIONS;
+                if (!baned.contains(ids.ENIGMA_FACTION_ID)) {
+                    baned.add(ids.ENIGMA_FACTION_ID);
+                }
+            } catch (UnsupportedOperationException ex){ }
         }
     }
 

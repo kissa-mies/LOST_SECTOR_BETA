@@ -16,7 +16,7 @@ public class nskr_hintIntel extends BaseIntelPlugin {
 
     private boolean visited = false;
     CampaignFleetAPI pf;
-    private final StarSystemAPI system;
+    public final StarSystemAPI system;
     static void log(final String message) {
         Global.getLogger(nskr_hintIntel.class).info(message);
     }

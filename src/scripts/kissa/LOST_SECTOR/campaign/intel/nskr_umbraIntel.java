@@ -27,11 +27,14 @@ public class nskr_umbraIntel extends BaseIntelPlugin {
         this.fleet = fleet;
         this.flagship = fleet.getFlagship();
         Global.getSector().addScript(this);
+
+        //remove hint intel on discovery
+        nskr_hintManager.removeHintIntel();
     }
 
     @Override
     public void advance(float amount) {
-        if (flagship != fleet.getFlagship() || fleet.getFlagship()==null) {
+        if (fleet.getFlagship()==null || flagship != fleet.getFlagship()) {
             gone = true;
         }
         if (gone){

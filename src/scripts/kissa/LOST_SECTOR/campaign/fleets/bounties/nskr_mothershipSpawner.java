@@ -262,6 +262,9 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
         simpleFleet.flagshipInfo = flagship;
         simpleFleet.assignment = FleetAssignment.ORBIT_PASSIVE;
         simpleFleet.assignmentText = "error #446, try again?";
+
+        //simpleFleet.aiFleetProperties = true;
+
         CampaignFleetAPI fleet = simpleFleet.create();
 
         //custom key
@@ -333,7 +336,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
         simpleSystem.pickTags = pickTags;
         simpleSystem.blacklistStars = banTypes;
         simpleSystem.blacklistSystemTypes = banSystems;
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         List<StarSystemAPI> systems = new ArrayList<>();
         List<StarSystemAPI> validSystems = new ArrayList<>();

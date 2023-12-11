@@ -4,6 +4,8 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin;
@@ -30,11 +32,14 @@ public class nskr_mothershipIntel  extends BaseIntelPlugin {
         this.fleet = fleet;
         this.flagship = fleet.getFlagship();
         Global.getSector().addScript(this);
+
+        //remove hint intel on discovery
+        nskr_hintManager.removeHintIntel();
     }
 
     @Override
     public void advance(float amount) {
-        if (flagship != fleet.getFlagship() || fleet.getFlagship()==null) {
+        if (fleet.getFlagship()==null || flagship != fleet.getFlagship()) {
             gone = true;
         }
         if (gone){

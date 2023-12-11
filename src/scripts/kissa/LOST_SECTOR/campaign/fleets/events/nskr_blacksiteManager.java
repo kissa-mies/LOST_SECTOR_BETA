@@ -53,7 +53,7 @@ public class nskr_blacksiteManager extends BaseCampaignEventListener implements 
     Random random;
 
     static void log(final String message) {
-        Global.getLogger(nskr_loanShark.class).info(message);
+        Global.getLogger(nskr_blacksiteManager.class).info(message);
     }
 
     public nskr_blacksiteManager() {

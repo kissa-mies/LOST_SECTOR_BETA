@@ -61,7 +61,10 @@ public class nskr_mothershipFrigateStats extends BaseHullMod {
         for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()) {
             if (m.getHullSpec() == null) continue;
             if (m.getHullSpec().getBaseHullId() == null) continue;
-            if (m.getHullSpec().getBaseHullId().equals("nskr_sunburst")) return true;
+            if (m.getHullSpec().getBaseHullId().equals("nskr_sunburst")) {
+                //unapply if mothballed
+                return !m.isMothballed();
+            }
         }
 
         return false;

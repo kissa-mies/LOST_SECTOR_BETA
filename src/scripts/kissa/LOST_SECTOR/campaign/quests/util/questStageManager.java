@@ -316,19 +316,19 @@ public class questStageManager extends BaseCampaignEventListener implements Ever
         //    questUtil.setDisksRecovered(5);
         //}
 
-        //int targetStage = 11;
-        //int s = stage;
-        //frameWait2++;
-        //if (frameWait2>50) {
-        //    if (stage < targetStage) {
-        //        frameWait2=0;
-        //        s++;
-        //        questUtil.setStage(s);
-        //    }
-        //}
-        //if (Global.getSector().getFaction(Factions.PLAYER).getRelationship("kesteven")<0.9f){
-        //    Global.getSector().getFaction(Factions.PLAYER).setRelationship("kesteven", 1f);
-        //}
+       //int targetStage = 6;
+       //int s = stage;
+       //frameWait2++;
+       //if (frameWait2>50) {
+       //    if (stage < targetStage) {
+       //        frameWait2=0;
+       //        s++;
+       //        questUtil.setStage(s);
+       //    }
+       //}
+       //if (Global.getSector().getFaction(Factions.PLAYER).getRelationship("kesteven")<0.9f){
+       //    Global.getSector().getFaction(Factions.PLAYER).setRelationship("kesteven", 1f);
+       //}
 
         //start job 1
         if (stage ==1) {

@@ -111,6 +111,11 @@ public class nskr_rorqSpawner extends BaseCampaignEventListener implements Every
         if (counter.val>10f) {
             for (fleetInfo f : fleets) {
                 CampaignFleetAPI fleet = f.fleet;
+                //rorq GONE
+                if (fleet.getFlagship()==null || fleet.getFlagship() != fleet.getFlagship()) {
+                    fleet.getMemoryWithoutUpdate().unset(nskr_rorqSpawner.LOOT_KEY);
+                }
+
                 boolean despawn = false;
 
                 //looted
@@ -121,7 +126,13 @@ public class nskr_rorqSpawner extends BaseCampaignEventListener implements Every
                 if (fleet.getFleetPoints()<=0f){
                     despawn = true;
                 }
-                //log("rorq tags "+fleet.getFlagship().getVariant().getTags());
+
+                //for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()){
+                //    if(!m.getHullSpec().getBaseHullId().equals("nskr_rorqual"))continue;
+                //    fleet.removeFleetMemberWithDestructionFlash(m);
+                //    //update
+                //    fleetUtil.update(fleet, new Random());
+                //}
 
                 Vector2f fp = fleet.getLocationInHyperspace();
                 Vector2f pp = this.pf.getLocationInHyperspace();

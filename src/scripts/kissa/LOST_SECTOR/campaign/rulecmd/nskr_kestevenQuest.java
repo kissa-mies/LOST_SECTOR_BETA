@@ -593,11 +593,6 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 	}
 
 	protected void SPOptionPicked(){
-
-		//remove sp
-		Global.getSector().getPlayerStats().setStoryPoints(Global.getSector().getPlayerStats().getStoryPoints()-1);
-		text.setFontSmallInsignia();
-		//text.addPara("Used 1 Story point",g,gr,"1 Story point","");
 		text.setFontInsignia();
 
 		Global.getSoundPlayer().playUISound("ui_char_spent_story_point",1f,1f);

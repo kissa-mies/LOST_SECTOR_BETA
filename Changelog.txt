@@ -1,16 +1,52 @@
+Version 0.6.0e
+-ONLY save compatible with 0.6.0x versions-
+
+Balance changes:
+SHIPS
+- Prosperity reduced flux dissipation 1000->900
+- Nighthawk reduced flux dissipation 600->550
+- Kingslayer swapped large composites to ballistics, reduced max OP 330->320, reduced top speed 40->35
+- Sunburst base burn increased 6->7, swapped all universals to synergies
+WEAPONS
+- Modular Huginn wing OP cost lowered 22->16
+- Bite ALG OP cost lowered 9->8
+- Surge Plasma Scatterer increased base range 450->600
+- Mega Flux Rocket Pod reduced max ammo 12->9
+- Giga Pulse Cannon dps reduced from 444->404
+MISC
+- Volatile Flux Injector increased cap bonus 50%->67%
+
+Fixes:
+- Fixed a rare crash with Inertial Supercharger
+- Fixed S-Mod removal and Fleet size requirement skip options using 2 SP instead of 1 SP
+- Fixed Sunburst consuming cores while mothballed
+   - Also should no longer show up in Midnight's store
+- Fixed some AI fleets being able to retreat when they shouldn't
+- Fixed the Peacekeepers bounty not despawning in some cases, For real this time
+
+Version 0.6.0d
+-ONLY save compatible with 0.6.0x versions-
+
+- Fixed the Peacekeepers bounty not despawning in some edge cases
+- Mysterious signals intel is now removed when you find the source
+- Compressed some BG music, saving like 30mb of your precious RAM
+
 Version 0.6.0c
+-ONLY save compatible with 0.6.0x versions-
 
 - Fixed a possible crash when blacksite fleets couldn't find a random market
 
-Version 0.6.0b
+Version 0.6.0b:
+-ONLY save compatible with 0.6.0x versions-
 
 - Some visual changes and updates
 
-- Reduce Mega Flux Rocket Rate Of Fire to 14s->17.5s
+- Reduced Mega Flux Rocket Rate Of Fire to 14s->17.5s
 
 - Fixed a crash when hitting ESC on certain parts of the mothership fleet dialog
 
-Version 0.6.0a
+Version 0.6.0a:
+-BREAKS SAVES-
 
 - 2 new Enigma / (Pt) ships 
    - Warfare-Class Destroyer - Heavy Gunship

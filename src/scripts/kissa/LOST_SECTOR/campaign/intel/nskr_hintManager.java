@@ -5,6 +5,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.BaseCampaignEventListener;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.bounties.nskr_abyssSpawner;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.bounties.nskr_eternitySpawner;
@@ -148,6 +149,20 @@ public class nskr_hintManager extends BaseCampaignEventListener implements Every
             newSystem = false;
 
             counter.val = 0f;
+        }
+    }
+
+    public static void removeHintIntel() {
+        if (Global.getSector().getIntelManager().hasIntelOfClass(nskr_hintIntel.class)){
+            CampaignFleetAPI pf = Global.getSector().getPlayerFleet();
+            for (IntelInfoPlugin intel :  Global.getSector().getIntelManager().getIntel()){
+                if (intel.getClass()==nskr_hintIntel.class){
+                    StarSystemAPI sys = ((nskr_hintIntel) intel).system;
+                    if (pf.getContainingLocation()== sys){
+                        ((nskr_hintIntel) intel).endImmediately();
+                    }
+                }
+            }
         }
     }
 

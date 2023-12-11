@@ -126,7 +126,7 @@ nskr_ttCollectorDialogInitial,OpenCommLink,"$faction.id == tritachyon score:100
 $entity.isHostile
 !$ignorePlayerCommRequests
 nskr_ttCollectorDialog hasOption",,"""You have something we need $playerName. We know you are working with those snakes from Kesteven."" $HeOrShe shakes $hisOrHer head in disapproval.
-""Don't think you just own the whole sector like that, it's time we even the score. Hand over those Artifact Electronics you have and we can call it even captain.""","nskr_ttCollectorDialogInitialText:Continue",
+""Don't think you just own the whole sector like that, it's time we even the score. Hand over those Artifact Electronics you have and we can call it a day captain.""","nskr_ttCollectorDialogInitialText:Continue",
 nskr_ttCollectorDialogInitialText,DialogOptionSelected,"$option == nskr_ttCollectorDialogInitialText","nskr_ttCollectorDialog canPay
 $entity.ignorePlayerCommRequests = true 10",,,
 nskr_ttCollectorDialogPayAll,DialogOptionSelected,"$option ==nskr_ttCollectorDialogPayAll","nskr_ttCollectorDialog pay

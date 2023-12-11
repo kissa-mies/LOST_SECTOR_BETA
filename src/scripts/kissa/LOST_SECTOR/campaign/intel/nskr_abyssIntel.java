@@ -31,6 +31,9 @@ public class nskr_abyssIntel extends BaseIntelPlugin {
         this.fleet = fleet;
         this.flagship = fleet.getFlagship();
         Global.getSector().addScript(this);
+
+        //remove hint intel on discovery
+        nskr_hintManager.removeHintIntel();
     }
 
     @Override

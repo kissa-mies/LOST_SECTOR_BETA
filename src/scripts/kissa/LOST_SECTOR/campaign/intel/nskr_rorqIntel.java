@@ -38,10 +38,9 @@ public class nskr_rorqIntel extends BaseIntelPlugin {
 
     @Override
     public void advance(float amount) {
-        if (flagship != fleet.getFlagship() || fleet.getFlagship()==null) {
+        if (fleet.getFlagship()==null || flagship != fleet.getFlagship()) {
             gone = true;
         }
-
 
         if (gone && nskr_bountyLoot.getPlayerDefeated(nskr_rorqSpawner.DEFEAT_ID)){
             payout = true;

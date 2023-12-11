@@ -292,13 +292,13 @@ public class contractManager extends BaseCampaignEventListener implements EveryF
                     typeString = "Remnant vessel";
                 }
                 break;
-            case (Factions.DERELICT):
-                if (contract.count>1 && remaining>1) {
-                    typeString = "Derelict vessels";
-                } else {
-                    typeString = "Derelict vessel";
-                }
-                break;
+            //case (Factions.DERELICT):
+            //    if (contract.count>1 && remaining>1) {
+            //        typeString = "Derelict vessels";
+            //    } else {
+            //        typeString = "Derelict vessel";
+            //    }
+            //    break;
             case (ids.ENIGMA_FACTION_ID):
                 if (contract.count>1 && remaining>1) {
                     typeString = "Enigma vessels";

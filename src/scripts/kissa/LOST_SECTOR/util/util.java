@@ -24,7 +24,6 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantSeededFleetManag
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
 import scripts.kissa.LOST_SECTOR.campaign.procgen.nskr_dormantSpawner;
 import scripts.kissa.LOST_SECTOR.campaign.nskr_exileManager;
@@ -332,7 +331,7 @@ public class util {
     public static StarSystemAPI getRandomNonCoreSystem(Random random) {
 
         simpleSystem simpleSystem = new simpleSystem(random, 1);
-        simpleSystem.pickOnlyInConstellation = true;
+        simpleSystem.pickOnlyInProcgen = true;
 
         if (!simpleSystem.get().isEmpty()) {
             return simpleSystem.pick();

@@ -179,10 +179,10 @@ public class contractInfo {
                     calc(REMNANT_BASE, minRandom, maxRandom, mult, REMNANT_BASE_REWARD, rewardMult);
                     isFactionBounty = true;
                     break;
-                //case (Factions.DERELICT):
-                //    calc(DERELICT_BASE, minRandom, maxRandom, mult, DERELICT_BASE_REWARD, rewardMult);
-                //    isFactionBounty = true;
-                //    break;
+                case (Factions.DERELICT):
+                    calc(DERELICT_BASE, minRandom, maxRandom, mult, DERELICT_BASE_REWARD, rewardMult);
+                    isFactionBounty = true;
+                    break;
                 case (ids.ENIGMA_FACTION_ID):
                     calc(ENIGMA_BASE, minRandom, maxRandom, mult, ENIGMA_BASE_REWARD, rewardMult);
                     isFactionBounty = true;

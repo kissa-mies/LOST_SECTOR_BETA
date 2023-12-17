@@ -18,7 +18,7 @@ public class nskr_mothershipFrigateStats extends BaseHullMod {
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
 
-        stats.getMaxCombatReadiness().modifyFlat(id, nskr_mothership.CR_BONUS * 0.01f);
+        stats.getMaxCombatReadiness().modifyFlat(id, nskr_mothership.CR_BONUS * 0.01f, "Mothership Subroutine bonus");
 
         stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(nskr_mothership.FUEL_BASE_KEY, -1f);
         stats.getSuppliesToRecover().modifyFlat(nskr_mothership.FUEL_BASE_KEY, -1f);

@@ -1200,10 +1200,10 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 					dialog.getOptionPanel().setEnabled(DIALOG_OPTION_EXTRA_PREFIX+"3", false);
 				}
 				if (index==4){
-					str = "\"Ah yes, of course...\" Her eyes narrow to show disdain. \"we will deal with this \"E\" in time, but it's nothing important for now.\"";
+					str = "\"Ah yes, of course...\" Her eyes narrow to show disdain. \"No one important, we will deal with this \"LZ\" in time.\"";
 					dialog.getOptionPanel().setEnabled(DIALOG_OPTION_EXTRA_PREFIX+"4", false);
 					//don't show up again
-					questUtil.setCompleted(false, questStageManager.E_MESSENGER_TALKED_KEY);
+					questUtil.setCompleted(false, questStageManager.E_MESSENGER_TALKED_ASK_ABOUT_KEY);
 				}
 			}
 			//job 4 complete alice
@@ -1221,10 +1221,10 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 					dialog.getOptionPanel().setEnabled(DIALOG_OPTION_EXTRA_PREFIX+"2", false);
 				}
 				if (index==3){
-					str = "\"Ah yes, of course...\" Her eyes narrow to show disdain. \"we will deal with this \"E\" in time, but it's nothing important for now.\"";
+					str = "\"Ah yes, of course...\" Her eyes narrow to show disdain. \"No one important, we will deal with this \"LZ\" in time.\"";
 					dialog.getOptionPanel().setEnabled(DIALOG_OPTION_EXTRA_PREFIX+"3", false);
 					//don't show up again
-					questUtil.setCompleted(false, questStageManager.E_MESSENGER_TALKED_KEY);
+					questUtil.setCompleted(false, questStageManager.E_MESSENGER_TALKED_ASK_ABOUT_KEY);
 				}
 			}
 		}
@@ -1553,6 +1553,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 		MODS.add(ids.INERTIAL_SUPERCHARGER_HULLMOD_ID);
 		MODS.add(ids.VOLATILE_FLUX_INJECTOR_HULLMOD_ID);
 		MODS.add(ids.HIGH_CAPACITANCE_BANKS_HULLMOD_ID);
+		MODS.add(ids.CRITICAL_POINT_PROTECTION_HULLMOD_ID);
 	}
 
 	private HullModSpecAPI getRewardMod() {

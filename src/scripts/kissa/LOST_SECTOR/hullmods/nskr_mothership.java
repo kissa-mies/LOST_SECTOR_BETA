@@ -100,7 +100,7 @@ public class nskr_mothership extends BaseHullMod {
     }
 
     private void applySubroutineStats(String id, CampaignFleetAPI fleet, MutableShipStatsAPI stats) {
-        stats.getMaxCombatReadiness().modifyFlat(id, CR_BONUS * 0.01f);
+        stats.getMaxCombatReadiness().modifyFlat(id, CR_BONUS * 0.01f, "Mothership Subroutine bonus");
 
         for (FleetMemberAPI m : fleet.getMembersWithFightersCopy()) {
             if (m.getVariant()==null) continue;
@@ -123,7 +123,7 @@ public class nskr_mothership extends BaseHullMod {
     }
 
     private void applyPenaltyStats(String id, MutableShipStatsAPI stats) {
-        stats.getMaxCombatReadiness().modifyFlat(id, -CR_PENALTY * 0.01f);
+        stats.getMaxCombatReadiness().modifyFlat(id, -CR_PENALTY * 0.01f, "Mothership out of AI Cores");
 
     }
 

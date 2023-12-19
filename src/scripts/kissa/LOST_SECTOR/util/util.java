@@ -16,6 +16,7 @@ import java.util.*;
 import java.util.List;
 
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.DModManager;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.*;
@@ -214,77 +215,8 @@ public class util {
         return CC;
     }
 
-    public static float getDMods(Set<java.lang.String> mods){
-        float dMods = 0f;
-        for (String mod : mods){
-            if (mod.equals("comp_armor")){
-                dMods++;
-            }
-            if (mod.equals("comp_hull")){
-                dMods++;
-            }
-            if (mod.equals("degraded_engines")){
-                dMods++;
-            }
-            if (mod.equals("degraded_drive_field")){
-                dMods++;
-            }
-            if (mod.equals("faulty_grid")){
-                dMods++;
-            }
-            if (mod.equals("unstable_coils")){
-                dMods++;
-            }
-            if (mod.equals("comp_structure")){
-                dMods++;
-            }
-            if (mod.equals("glitched_sensors")){
-                dMods++;
-            }
-            if (mod.equals("malfunctioning_comms")){
-                dMods++;
-            }
-            if (mod.equals("defective_manufactory")){
-                dMods++;
-            }
-            if (mod.equals("damaged_deck")){
-                dMods++;
-            }
-            if (mod.equals("fragile_subsystems")){
-                dMods++;
-            }
-            if (mod.equals("comp_storage")){
-                dMods++;
-            }
-            if (mod.equals("increased_maintenance")){
-                dMods++;
-            }
-            if (mod.equals("erratic_injector")){
-                dMods++;
-            }
-            if (mod.equals("faulty_auto")){
-                dMods++;
-            }
-            if (mod.equals("damaged_mounts")){
-                dMods++;
-            }
-            if (mod.equals("degraded_life_support")){
-                dMods++;
-            }
-            if (mod.equals("degraded_shields")){
-                dMods++;
-            }
-            if (mod.equals("destroyed_mounts")){
-                dMods++;
-            }
-            if (mod.equals("ill_advised")){
-                dMods++;
-            }
-            if (mod.equals(HullMods.ANDRADA_MODS)){
-                dMods++;
-            }
-        }
-        return dMods;
+    public static float getDMods(ShipVariantAPI v){
+       return DModManager.getNumDMods(v);
     }
 
     public static boolean isLogistics(EnumSet<ShipHullSpecAPI.ShipTypeHints> hints){

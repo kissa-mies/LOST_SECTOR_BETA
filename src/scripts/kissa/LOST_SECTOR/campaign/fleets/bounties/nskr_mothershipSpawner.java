@@ -414,7 +414,7 @@ public class nskr_mothershipSpawner  extends BaseCampaignEventListener implement
                         return;
                     }
 
-                    if (fleet.getFlagship()!=info.flagship || fleet.getFlagship()==null) {
+                    if (fleet.getFlagship()==null) {
 
                         //spawn
                         CustomCampaignEntityAPI entity = spawnWreck(fleet, FLAGSHIP_VARIANT, FLAGSHIP_NAME);

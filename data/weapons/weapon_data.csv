@@ -1,7 +1,7 @@
 "name","id","tier","rarity","base value","range","damage/second","damage/shot","emp","impact","turn rate","OPs","ammo","ammo/sec","reload size","type","energy/shot","energy/second","chargeup","chargedown","burst size","burst delay","min spread","max spread","spread/shot","spread decay/sec","beam speed","proj speed","launch speed","flight time","proj hitpoints","autofireAccBonus","extraArcForAI","hints","tags","groupTag","tech/manufacturer","for weapon tooltip>>","primaryRoleStr","speedStr","trackingStr","turnRateStr","accuracyStr","customPrimary","customPrimaryHL","customAncillary","customAncillaryHL","noDPSInTooltip","number"
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-"Bastion-Cracker Torpedo Tube","nskr_bc_tube",2,,1250,1200,,2500,,30,6,10,6,,,"HIGH_EXPLOSIVE",0,,0,10,1,,0,0,0,0,,450,40,"4.5",400,,,"STRIKE","strike14, rocket7, kesteven",,"Kesteven",,"Torpedo","Fast","None",,,"When hitting hull or armor deals %s of the targets maximum hitpoints as bonus damage. Against modular stations and ships the module or parent hull with the most hitpoints counts for bonus the damage.","10%",,,"TRUE",369
-"Bastion-Cracker Torpedo","nskr_bc_single",2,,225,1200,,2500,,30,10,2,1,,,"HIGH_EXPLOSIVE",0,,0,4,1,,0,0,0,0,,450,40,"4.5",400,,,"STRIKE","strike9, rocket2, kesteven",,"Kesteven",,"Torpedo","Fast","None",,,"When hitting hull or armor deals %s of the targets maximum hitpoints as bonus damage. Against modular stations and ships the module or parent hull with the most hitpoints counts for bonus the damage.","10%",,,"TRUE",369
+"Bastion-Cracker Torpedo Tube","nskr_bc_tube",1,,1250,1200,,2500,,30,6,8,6,,,"HIGH_EXPLOSIVE",0,,0,10,1,,0,0,0,0,,450,40,"4.5",400,,,"STRIKE","strike14, rocket7, kesteven",,"Kesteven",,"Torpedo","Fast","None",,,"When hitting hull or armor deals %s of the targets maximum hitpoints as bonus damage. Against modular stations and ships the module or parent hull with the most hitpoints counts for bonus the damage.","10%",,,"TRUE",369
+"Bastion-Cracker Torpedo","nskr_bc_single",1,,225,1200,,2500,,30,10,1,1,,,"HIGH_EXPLOSIVE",0,,0,4,1,,0,0,0,0,,450,40,"4.5",400,,,"STRIKE","strike9, rocket2, kesteven",,"Kesteven",,"Torpedo","Fast","None",,,"When hitting hull or armor deals %s of the targets maximum hitpoints as bonus damage. Against modular stations and ships the module or parent hull with the most hitpoints counts for bonus the damage.","10%",,,"TRUE",369
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "Collector Heavy Auto Blaster","nskr_collector",3,,36200,700,,400,,40,6,28,8,"0.75",2,"ENERGY",440,,,"0.25",,,0,5,1,1,,700,,,150,,,,"restricted, enigma, prot_wp, energy19",,"Unknown Prototype",,"Kill",,,,,"Executes any target below %s maximum hitpoints, on armor or hull hit.","15%",,,,420
 "Giga Pulse Cannon","nskr_plasmal",3,,39000,1000,,2000,,150,4,32,40,,,"ENERGY",2000,,"0.5","8.901",2,"0.5",4,10,5,1,,700,,,500,,,"STRIKE, USE_VS_FRIGATES","restricted, enigma, prot_wp, energy16, strike18",,"Unknown Prototype",,"Destruction",,,,,"Projectiles deal damage to all nearby targets on impact.",,,,,420
@@ -31,11 +31,11 @@
 "Obliterator Rockets","nskr_huginn_e_arm_left",,,,900,,150,,5,30,,,,,"HIGH_EXPLOSIVE",0,,0,"6.75",2,"0.25",0,30,15,10,,400,50,"2.50",100,,,"SYSTEM",,,"Project Enigma",,"Anti-Armor","Fast","None",,,,,,,,400
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "Missile Salvo","nskr_msalvo",0,,200000,1200,,400,400,25,30,12,30,,,"ENERGY",0,,0,1,1,,0,0,0,,,500,100,"3.5",100,,,"SYSTEM",,,,,,,,,,,,,,,400
-"Kaboom Dummy","nskr_kaboom_dummy",0,,3000,2400,,750,,200,5,16,,,,"HIGH_EXPLOSIVE",750,,0,3,1,,0,10,5,10,,750,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
-"Spike Dummy","nskr_spike_dummy",0,,3000,200,,100,,20,5,16,,,,"KINETIC",750,,0,3,1,,0,10,5,10,,800,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
+"Kaboom Dummy","nskr_kaboom_dummy",0,,3000,2400,,750,,200,5,16,,,,"HIGH_EXPLOSIVE",0,,0,3,1,,0,10,5,10,,750,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
+"Spike Dummy","nskr_spike_dummy",0,,3000,200,,100,,20,5,16,,,,"KINETIC",0,,0,3,1,,0,10,5,10,,800,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-"Causality1 Dummy","nskr_causality1_dummy",0,,3000,2000,,750,,200,5,16,,,,"HIGH_EXPLOSIVE",750,,0,3,1,,0,10,5,10,,300,300,9,1200,,,"SYSTEM",,,,,,,,,,,,,,,400
-"Causality2 Dummy","nskr_causality2_dummy",0,,3000,1000,,100,,20,5,16,,,,"ENERGY",750,,0,3,1,,0,10,5,10,,1000,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
+"Causality1 Dummy","nskr_causality1_dummy",0,,3000,2000,,750,,200,5,16,,,,"HIGH_EXPLOSIVE",0,,0,3,1,,0,10,5,10,,300,300,9,1200,,,"SYSTEM",,,,,,,,,,,,,,,400
+"Causality2 Dummy","nskr_causality2_dummy",0,,3000,1000,,100,,20,5,16,,,,"ENERGY",0,,0,3,1,,0,10,5,10,,1000,,,400,,,"SYSTEM",,,,,,,,,,,,,,,400
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "MOAB Flak","nskr_bigFlak",,,,1200,,1500,,,,,,,,"HIGH_EXPLOSIVE",0,0,0,"0.1",1,,0,0,0,0,,200,200,4,500,,,"SYSTEM",,,,,,,,,,,,,,,400
 "EM Flak","nskr_emflak",,,,250,,750,1200,,,,,0,,"ENERGY",0,0,0,"0.1",3,"1.5",150,150,0,0,,50,200,6,300,,,"SYSTEM",,,,,,,,,,,,,,,400

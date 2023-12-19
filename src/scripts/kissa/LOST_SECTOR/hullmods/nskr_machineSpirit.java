@@ -100,6 +100,11 @@ public class nskr_machineSpirit extends BaseHullMod {
                 float emp = damage.getDamage() * 1.0f;
                 float dam = damage.getDamage() * 2.0f;
 
+                if (damage.isDps()) {
+                    emp /= 10f;
+                    dam /= 10f;
+                }
+
                 engine.spawnEmpArc((ShipAPI) damage.getStats().getEntity(), point, ship, ship,
                         DamageType.ENERGY,
                         dam,

@@ -27,6 +27,16 @@ public class thronesGiftBackground extends BaseCharacterBackground {
     }
 
     @Override
+    public boolean canBeSelected(FactionSpecAPI factionSpec, NexFactionConfig factionConfig) {
+        return unlocked;
+    }
+
+    @Override
+    public void canNotBeSelectedReason(TooltipMakerAPI tooltip, FactionSpecAPI factionSpec, NexFactionConfig factionConfig) {
+        if (!unlocked) tooltip.addPara("[LOCKED]", 2f);
+    }
+
+    @Override
     public String getTitle(FactionSpecAPI factionSpec, NexFactionConfig factionConfig) {
         if (!unlocked) return spec.title+" [LOCKED]";
         return spec.title;
@@ -40,7 +50,7 @@ public class thronesGiftBackground extends BaseCharacterBackground {
 
     @Override
     public String getLongDescription(FactionSpecAPI factionSpec, NexFactionConfig factionConfig) {
-        if (!unlocked) return "Does nothing if selected.";
+        if (!unlocked) return "Can't be selected.";
         return spec.longDescription;
     }
 

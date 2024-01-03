@@ -315,7 +315,7 @@ public class nskr_shipSwap extends PaginatedOptions {
 							return;
 						}
 
-						if (points>cost) {
+						if (points >= cost) {
 							dialog.getOptionPanel().addOption("Make the purchase", "nskr_shipSwapConfirmPurchase");
 							dialog.getOptionPanel().addOption("\"Never mind.\"", "nskr_shipSwapMenuReturn");
 						} else {

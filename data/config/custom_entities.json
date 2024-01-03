@@ -260,6 +260,16 @@
 		"layers":[STATIONS], # what layer(s) to render in. See CampaignEngineLayers.java for possible values
 	},
 
+	"nskr_blast":{
+		"showInCampaign":true, # show in campaign layer
+		"showIconOnMap":false,
+		"showNameOnMap":false,
+		"renderCircleIndicator":false, # make clickable,
+		"interactable":false,
+		"layers":[ABOVE], # what layer(s) to render in. See CampaignEngineLayers.java for possible values,
+		"pluginClass":"scripts.kissa.LOST_SECTOR.util.campaignBlastSpriteCreator",
+	},
+
 
 }
 

@@ -3,10 +3,13 @@ package scripts.kissa.LOST_SECTOR.campaign.fleets.bounties;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
+import com.fs.starfarer.api.campaign.listeners.ShipRecoveryListener;
 import com.fs.starfarer.api.characters.FullName;
+import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
+import com.fs.starfarer.api.loading.VariantSource;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.lazywizard.lazylib.MathUtils;
@@ -21,7 +24,7 @@ import scripts.kissa.LOST_SECTOR.util.util;
 
 import java.util.*;
 
-public class nskr_abyssSpawner extends BaseCampaignEventListener implements EveryFrameScript {
+public class nskr_abyssSpawner extends BaseCampaignEventListener implements EveryFrameScript, ShipRecoveryListener {
     //
     //spawns a special remnant fleet to a random location in a red giant with remnants, once per game.
     //
@@ -336,5 +339,22 @@ public class nskr_abyssSpawner extends BaseCampaignEventListener implements Ever
 
     public boolean runWhilePaused() {
         return false;
+    }
+
+    @Override
+    public void reportShipsRecovered(List<FleetMemberAPI> ships, InteractionDialogAPI dialog) {
+
+        for (FleetMemberAPI m : ships) {
+            ShipVariantAPI v = m.getVariant();
+
+            String id = v.getHullSpec().getBaseHullId();
+            if (id.equals("nskr_reverie_boss") || id.equals("nskr_afflictor_boss") || id.equals("nskr_harbinger_boss")){
+
+                v.removeTag(Tags.SHIP_LIMITED_TOOLTIP);
+
+                m.setVariant(v, false, false);
+            }
+        }
+
     }
 }

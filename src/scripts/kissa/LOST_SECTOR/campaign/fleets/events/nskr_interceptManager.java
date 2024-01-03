@@ -71,6 +71,7 @@ public class nskr_interceptManager extends BaseCampaignEventListener implements 
         getRandom(PERSISTENT_RANDOM_KEY);
         getRandom(PERSISTENT_FLEET_RANDOM_KEY);
     }
+
     static void log(final String message) {
         Global.getLogger(nskr_interceptManager.class).info(message);
     }
@@ -453,10 +454,11 @@ public class nskr_interceptManager extends BaseCampaignEventListener implements 
             ShipVariantAPI v = curr.getVariant();
             if (v==null) continue;
 
-            //random
+            //random and flagship
             if (random.nextFloat()<0.50f || curr.isFlagship()){
                 v.addPermaMod("nskr_machineSpirit");
                 v.addTag(Tags.TAG_NO_AUTOFIT);
+                if (curr.isFlagship()) v.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
             }
         }
 

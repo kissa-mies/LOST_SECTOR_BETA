@@ -120,6 +120,7 @@ public class nskr_EndingElizaDialog implements InteractionDialogPlugin {
 
             questUtil.setCompleted(true, DIALOG_FINISHED_KEY);
             questUtil.setStage(20);
+            questUtil.saveEnding();
 
             //commission fuckery
             if((Misc.getCommissionFactionId()!=null)) {

@@ -16,6 +16,7 @@ import com.fs.starfarer.api.loading.WeaponSpecAPI;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
+import scripts.kissa.LOST_SECTOR.campaign.customStart.gamemodeManager;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.fleetInfo;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.simpleFleet;
 import scripts.kissa.LOST_SECTOR.campaign.quests.nskr_glacierCommsDialog;
@@ -129,6 +130,8 @@ public class nskr_stalkerSpawner extends BaseCampaignEventListener implements Ev
             counter.val += amount;
         }
         //log("threat "+threatMult);
+
+        if (gamemodeManager.getMode() == gamemodeManager.gameMode.HELLSPAWN) return;
 
         if (counter.val>10f) {
             //update threat mult

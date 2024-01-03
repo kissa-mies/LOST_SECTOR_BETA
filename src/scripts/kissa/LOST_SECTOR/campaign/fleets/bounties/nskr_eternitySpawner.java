@@ -3,7 +3,10 @@ package scripts.kissa.LOST_SECTOR.campaign.fleets.bounties;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
+import com.fs.starfarer.api.campaign.listeners.ShipRecoveryListener;
 import com.fs.starfarer.api.characters.FullName;
+import com.fs.starfarer.api.combat.ShipVariantAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
@@ -20,7 +23,7 @@ import scripts.kissa.LOST_SECTOR.util.util;
 
 import java.util.*;
 
-public class nskr_eternitySpawner extends BaseCampaignEventListener implements EveryFrameScript {
+public class nskr_eternitySpawner extends BaseCampaignEventListener implements EveryFrameScript, ShipRecoveryListener {
     //
     //spawns a special enigma fleet to a random location in a nebula once per game.
     //
@@ -63,6 +66,8 @@ public class nskr_eternitySpawner extends BaseCampaignEventListener implements E
         //for intel
         this.firstTime = new nskr_saved<>(SAVED_PREFIX + "FirstTime", true);
         this.random = new Random();
+        //listener
+        //Global.getSector().getListenerManager().addListener(this, true);
     }
 
     @Override
@@ -286,5 +291,23 @@ public class nskr_eternitySpawner extends BaseCampaignEventListener implements E
 
     public boolean runWhilePaused() {
         return false;
+    }
+
+    @Override
+    public void reportShipsRecovered(List<FleetMemberAPI> ships, InteractionDialogAPI dialog) {
+
+        for (FleetMemberAPI m : ships) {
+            ShipVariantAPI v = m.getVariant();
+
+            String id = v.getHullSpec().getBaseHullId();
+            if (id.equals("nskr_eternity_e")){
+
+                v.removeTag(Tags.SHIP_LIMITED_TOOLTIP);
+
+                m.setVariant(v, false, false);
+            }
+
+        }
+
     }
 }

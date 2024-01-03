@@ -12,6 +12,7 @@ import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.jetbrains.annotations.NotNull;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
+import scripts.kissa.LOST_SECTOR.campaign.customStart.gamemodeManager;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.fleetInfo;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.simpleFleet;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.simpleSystem;
@@ -107,6 +108,8 @@ public class nskr_hyperspaceEnigmaSpawner extends BaseCampaignEventListener impl
             counter.val += amount;
             fleetCounter.val += amount;
         }
+
+        if (gamemodeManager.getMode() == gamemodeManager.gameMode.HELLSPAWN) return;
 
         //logic
         if (counter.val > 10f) {

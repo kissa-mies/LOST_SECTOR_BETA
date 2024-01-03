@@ -89,5 +89,7 @@
 		"nskr_modRemoval":0.75,
 		#skip Power req for quest
 		"nskr_skipRequirement":1.00,
+		#skip the entire story
+		"nskr_skipStory":0.00,
 	},
 }

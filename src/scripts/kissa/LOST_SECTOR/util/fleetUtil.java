@@ -118,6 +118,21 @@ public class fleetUtil {
         //}
     }
 
+    public static void updatePlayerFleet(boolean withSort){
+
+        CampaignFleetAPI pf = Global.getSector().getPlayerFleet();
+        for (FleetMemberAPI m : pf.getMembersWithFightersCopy()) {
+            if (m.isFighterWing()) continue;
+
+            m.getVariant().setSource(VariantSource.REFIT);
+            m.setVariant(m.getVariant(), false, false);
+        }
+
+        //FINISHING
+        if (withSort) pf.getFleetData().sort();
+
+    }
+
     private static void safetyCheck(CampaignFleetAPI fleet, FleetAssignmentDataAPI curr) {
         if (curr == null) {
             fleet.clearAssignments();
@@ -421,14 +436,22 @@ public class fleetUtil {
         if (captain==null) return;
         int aiType = captain.getStats().getLevel();
 
+        //just in case
+        if (aiType==1 || aiType==2){
+            aiId = "gamma_core";
+            portraitId = "graphics/portraits/portrait_ai1b.png";
+        }
+        //gamma
         if (aiType==3 || aiType==4){
             aiId = "gamma_core";
             portraitId = "graphics/portraits/portrait_ai1b.png";
         }
+        //beta
         if (aiType==5 || aiType==6) {
             aiId = "beta_core";
             portraitId = "graphics/portraits/portrait_ai3b.png";
         }
+        //alpha
         if (aiType==7 || aiType==8) {
             aiId = "alpha_core";
             portraitId = "graphics/portraits/portrait_ai2b.png";

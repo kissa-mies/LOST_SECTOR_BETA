@@ -4,6 +4,8 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.*;
 import scripts.kissa.LOST_SECTOR.campaign.customStart.abilities.hellSpawnAbilityFID;
+import scripts.kissa.LOST_SECTOR.campaign.customStart.hellSpawnJudgementDialog;
+import scripts.kissa.LOST_SECTOR.campaign.customStart.hellSpawnJudgementFID;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.bounties.nskr_mothershipInteractionBlocker;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.bounties.nskr_mothershipSpawner;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.events.blacksiteInfo;
@@ -25,6 +27,13 @@ public class corePlugin extends BaseCampaignPlugin {
 
     @Override
     public PluginPick<InteractionDialogPlugin> pickInteractionDialogPlugin(SectorEntityToken interactionTarget) {
+        //HELLSPAWN judgement fleet
+        if (interactionTarget instanceof CampaignFleetAPI && interactionTarget.getMemoryWithoutUpdate().contains(hellSpawnJudgementDialog.JUDGEMENT_FLEET_KEY)) {
+            if (Global.getSector().getCampaignUI().getCurrentInteractionDialog()!=null) {
+                return new PluginPick<InteractionDialogPlugin>(
+                        new hellSpawnJudgementFID((CampaignFleetAPI) interactionTarget, Global.getSector().getCampaignUI().getCurrentInteractionDialog()), CampaignPlugin.PickPriority.MOD_SET);
+            }
+        }
         //HELLSPAWN fleet join logic
         if (interactionTarget instanceof CampaignFleetAPI && hellSpawnAbilityFID.hellSpawnInRange()) {
             return new PluginPick<InteractionDialogPlugin>(new hellSpawnAbilityFID(), CampaignPlugin.PickPriority.MOD_SET);

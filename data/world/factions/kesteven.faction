@@ -252,7 +252,7 @@
 			"graphics/portraits/nskr_kesteven_portrait_female_6.png",	
 		],
 	},
-		"music":{
+	"music":{
 		"theme":"nskr_kesteven_theme",
 		"market_neutral":"nskr_kesteven_theme",
 		"market_hostile":"nskr_kesteven_theme",

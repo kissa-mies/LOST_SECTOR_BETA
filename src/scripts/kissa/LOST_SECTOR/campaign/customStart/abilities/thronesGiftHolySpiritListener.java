@@ -45,6 +45,8 @@ public class thronesGiftHolySpiritListener implements AdvanceableListener {
     private boolean music = false;
     private boolean entrance = false;
     private float timer;
+    private String ogPortrait = "";
+
     public thronesGiftHolySpiritListener(ShipAPI ship) {
         this.ship = ship;
         this.timer = MathUtils.getRandomNumberInRange(25f, 75f);
@@ -72,6 +74,11 @@ public class thronesGiftHolySpiritListener implements AdvanceableListener {
 
             //stop music
             if (Global.getSoundPlayer().getCurrentMusicId().equals("HOLY SPIRIT.ogg")) Global.getSoundPlayer().pauseCustomMusic();
+
+            //set back og portrait
+            if (ship.getCaptain()!=null) {
+                ship.getCaptain().setPortraitSprite(ogPortrait);
+            }
 
             ship.removeListener(this);
             return;
@@ -101,6 +108,12 @@ public class thronesGiftHolySpiritListener implements AdvanceableListener {
                     " "+ENTRANCE_LINES.get(MathUtils.getRandomNumberInRange(0, ENTRANCE_LINES.size() - 1)));
 
             Global.getSoundPlayer().playUISound("nskr_prot_warning", 1.0f, 0.8f);
+
+            //set portrait
+            if (ship.getCaptain()!=null) {
+                ogPortrait = ship.getCaptain().getPortraitSprite();
+                ship.getCaptain().setPortraitSprite("graphics/portraits/nskr_thrn00.png");
+            }
 
             entrance = true;
         }

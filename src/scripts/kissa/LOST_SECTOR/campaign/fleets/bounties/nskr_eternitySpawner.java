@@ -121,7 +121,6 @@ public class nskr_eternitySpawner extends BaseCampaignEventListener implements E
                             "extreme caution",
                             Global.getSettings().getColor("yellowTextColor"),
                             Global.getSettings().getColor("yellowTextColor"));
-                    nskr_hintManager.setIntelReceived(true, HINT_KEY);
                     firstTime.val = false;
                 }
             }

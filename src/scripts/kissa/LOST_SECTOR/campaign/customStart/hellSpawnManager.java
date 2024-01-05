@@ -6,6 +6,7 @@ import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.ai.CampaignFleetAIAPI;
 import com.fs.starfarer.api.campaign.ai.FleetAssignmentDataAPI;
 import com.fs.starfarer.api.campaign.ai.ModularFleetAIAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ColonyPlayerHostileActListener;
@@ -24,7 +25,9 @@ import org.lwjgl.util.vector.Vector2f;
 import scripts.kissa.LOST_SECTOR.campaign.customStart.abilities.hellSpawnAbility;
 import scripts.kissa.LOST_SECTOR.campaign.customStart.intel.hellSpawnEventFactors;
 import scripts.kissa.LOST_SECTOR.campaign.customStart.intel.hellSpawnEventIntel;
+import scripts.kissa.LOST_SECTOR.campaign.customStart.intel.hellSpawnJudgementIntel;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.fleetInfo;
+import scripts.kissa.LOST_SECTOR.campaign.quests.util.questUtil;
 import scripts.kissa.LOST_SECTOR.campaign.util.campaignTimer;
 import scripts.kissa.LOST_SECTOR.nskr_modPlugin;
 import scripts.kissa.LOST_SECTOR.util.fleetUtil;
@@ -38,6 +41,12 @@ import java.util.Map;
 import java.util.Random;
 
 public class hellSpawnManager extends BaseCampaignEventListener implements EveryFrameScript, ColonyPlayerHostileActListener {
+
+    //welcome to hell
+    public static final int PEACEFUL_MAX_POINTS = 350;
+    public static final int NEUTRAL_MAX_POINTS = 2000;
+    public static final float JUDGEMENT_TIMER = 40f;
+    public static final float PEACEFUL_BONUS= 33f;
 
     public static final float FLAGSHIP_CAP_BONUS = 25f;
     public static final float FLAGSHIP_CRUISER_BONUS = 50f;
@@ -60,7 +69,6 @@ public class hellSpawnManager extends BaseCampaignEventListener implements Every
     public static final float CR_REDUCTION = 5f;
     public static final float STAB_PENALTY = 1f;
 
-
     public static final float AGENT_LIGHT_POINTS = 5f;
     public static final float AGENT_SERIOUS_POINTS = 10f;
     public static final float RAID_BASE_POINTS = 10f;
@@ -72,6 +80,9 @@ public class hellSpawnManager extends BaseCampaignEventListener implements Every
     public static final float UNLAWFUL_POINTS_MULT = 0.33f;
 
     public static final String STAT_ID = "HellspawnBonus";
+    public static final String STARTED_KEY = "HellspawnStartedKey";
+    public static final String JUDGEMENT_KEY = "HellspawnJudgementKey";
+    public static final String JUDGEMENT_DEFEATED_KEY = "HellspawnJudgementDefeatedKey";
     public static final String LEVEL_KEY = "hellSpawnManagerLevel";
     public static final String PERSISTENT_RANDOM_KEY = "hellSpawnManagerRandom";
 
@@ -108,13 +119,16 @@ public class hellSpawnManager extends BaseCampaignEventListener implements Every
         UNLAWFUL_FACTIONS.add("knights_of_eva");
         UNLAWFUL_FACTIONS.add("vass");
         UNLAWFUL_FACTIONS.add("ix_battlegroup");
-        UNLAWFUL_FACTIONS.add("hivers");
+        UNLAWFUL_FACTIONS.add("HIVER");
 
     }
 
-    private final ArrayList<String> lawfulFactions = new ArrayList<>();
-    private final ArrayList<String> unlawfulFactions = new ArrayList<>();
+    public static ArrayList<String> lawfulFactions = new ArrayList<>();
+    public static ArrayList<String> unlawfulFactions = new ArrayList<>();
     private void setupFactions() {
+        //make sure it's reset
+        lawfulFactions = new ArrayList<>();
+        unlawfulFactions = new ArrayList<>();
 
         ArrayList<String> temp = new ArrayList<>(LAWFUL_FACTIONS);
 
@@ -160,14 +174,55 @@ public class hellSpawnManager extends BaseCampaignEventListener implements Every
 
         timer.advance(amount);
         if (timer.onTimeout()){
+            MutableCharacterStatsAPI characterStats = Global.getSector().getPlayerStats();
+            MutableFleetStatsAPI fleetStats = Global.getSector().getPlayerFleet().getStats();
+            if (characterStats.getLevel()>=15){
+
+                //start
+                if (!questUtil.getCompleted(STARTED_KEY)) {
+                    CampaignUIAPI ui = Global.getSector().getCampaignUI();
+                    if (!ui.isShowingDialog() && !ui.isShowingMenu()) {
+                        //judgement
+                        Global.getSector().getCampaignUI().showInteractionDialog(new hellSpawnJudgementWarning(), null);
+
+                        questUtil.setCompleted(true, STARTED_KEY);
+                    }
+                }
+
+            }
+            IntelInfoPlugin info = Global.getSector().getIntelManager().getFirstIntel(hellSpawnJudgementIntel.class);
+            if (info!=null){
+                hellSpawnJudgementIntel intel = hellSpawnJudgementIntel.get();
+
+                float timer = Global.getSector().getClock().getElapsedDaysSince(intel.time);
+
+                if (timer > JUDGEMENT_TIMER){
+
+                    //NOW
+                    if (!questUtil.getCompleted(JUDGEMENT_KEY)) {
+                        CampaignUIAPI ui = Global.getSector().getCampaignUI();
+                        if (!ui.isShowingDialog() && !ui.isShowingMenu()) {
+                            //delete intel
+                            intel.endImmediately();
+                            //judgement
+                            Global.getSector().getCampaignUI().showInteractionDialog(new hellSpawnJudgementDialog(), null);
+
+                            questUtil.setCompleted(true, JUDGEMENT_KEY);
+                        }
+                    }
+
+                }
+
+            }
+            //jank ass shit
+            if (questUtil.getCompleted(JUDGEMENT_DEFEATED_KEY)) {
+                hellSpawnJudgementWarning.stopMusic();
+            }
 
             if (level==0) return;
             if (getStabPenalty()>0) {
                 applyCondition();
             }
-
-            MutableFleetStatsAPI fleetStats = Global.getSector().getPlayerFleet().getStats();
-            MutableCharacterStatsAPI characterStats = Global.getSector().getPlayerStats();
             //lvl1
             applyFleetBonus(fleetStats);
             //lvl2

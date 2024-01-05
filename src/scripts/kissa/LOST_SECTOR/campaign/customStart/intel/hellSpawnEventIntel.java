@@ -64,7 +64,7 @@ public class hellSpawnEventIntel extends BaseEventIntel implements FleetEventLis
     @Override
     public void advance(float amount) {
 
-        //addFactor(new hellSpawnEventFactors(10, "freebie", "you got points", "lol"));
+        //addFactor(new hellSpawnEventFactors(25, "freebie", "you got points", "lol"));
 
     }
 
@@ -185,6 +185,8 @@ public class hellSpawnEventIntel extends BaseEventIntel implements FleetEventLis
             hellSpawnManager.increaseLevel(1);
 
             characterStats.setSkillLevel("hellSpawnSkill", 1f);
+            characterStats.decreaseSkill("hellSpawnPeacefulSkill");
+            characterStats.refreshCharacterStatsEffects();
 
         }
         if (stage.id == Stage.INHUMAN) {

@@ -34,6 +34,12 @@
 	"nskr_holy_spirit_theme":[
 		{"file":"HOLY SPIRIT.ogg","source":"sounds/music","volume":0.80}, 
 	],
+	"nskr_thrn_theme":[
+		{"file":"THRN.ogg","source":"sounds/music","volume":0.80}, 
+	],
+	"nskr_peace":[
+		{"file":"Peace.ogg","source":"sounds/music","volume":1.00}, 
+	],
 	},
 	
 

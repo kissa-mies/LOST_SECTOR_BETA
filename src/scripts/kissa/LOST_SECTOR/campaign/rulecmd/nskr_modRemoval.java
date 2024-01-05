@@ -166,8 +166,8 @@ public class nskr_modRemoval extends PaginatedOptions {
         final InteractionDialogAPI dialog = this.dialog;
 
         dialog.showFleetMemberPickerDialog("Pick from your fleet",
-                Misc.ucFirst(nskr_stringHelper.getString("confirm")),
-                Misc.ucFirst(nskr_stringHelper.getString("cancel")),
+                Misc.ucFirst("confirm"),
+                Misc.ucFirst("cancel"),
                 5, 6, 120,true,false, getShipsWithSmods(), new FleetMemberPickerListener() {
                     @Override
                     public void pickedFleetMembers(List<FleetMemberAPI> members) {

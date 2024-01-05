@@ -167,6 +167,8 @@ public class thronesGiftDisposableFleetSpawner extends DisposableFleetManager {
         simpleFleet.name = "Hunters";
         simpleFleet.assignment = FleetAssignment.RAID_SYSTEM;
         simpleFleet.assignmentText = "looking for your fleet";
+        //no retreat
+        simpleFleet.aiFleetProperties = true;
 
         CampaignFleetAPI fleet = simpleFleet.create();
         if (fleet == null || fleet.isEmpty()) return null;

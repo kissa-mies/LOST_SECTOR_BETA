@@ -103,7 +103,6 @@ public class nskr_enigmaBlowerUpper extends BaseCampaignEventListener implements
                         "",
                         Global.getSettings().getColor("yellowTextColor"),
                         Global.getSettings().getColor("yellowTextColor"));
-                nskr_hintManager.setIntelReceived(true, HINT_KEY);
                 firstTime.val = false;
             }
             counter = 0f;

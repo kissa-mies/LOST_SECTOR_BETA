@@ -745,4 +745,29 @@ public class questUtil {
         Map<String, Object> data = Global.getSector().getPersistentData();
         data.put(id, stage);
     }
+
+    public static SectorEntityToken getLocation(String id){
+        return getLocation(id, null);
+    }
+    public static SectorEntityToken getLocation(String id, SectorEntityToken defaultLoc){
+
+        Map<String, Object> data = Global.getSector().getPersistentData();
+        if (!data.containsKey(id)) data.put(id, defaultLoc);
+
+        return (SectorEntityToken) data.get(id);
+    }
+    public static SectorEntityToken setLocation(SectorEntityToken loc, String id){
+        Map<String, Object> data = Global.getSector().getPersistentData();
+        data.put(id, loc);
+
+        return (SectorEntityToken) data.get(id);
+    }
+    public static Random getRandom(String id) {
+        Map<String, Object> data = Global.getSector().getPersistentData();
+        if (!data.containsKey(id)) {
+
+            data.put(id,  new Random(new Random().nextLong()));
+        }
+        return (Random) data.get(id);
+    }
 }

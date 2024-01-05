@@ -39,6 +39,7 @@ import scripts.kissa.LOST_SECTOR.campaign.fleets.events.nskr_blacksiteManager;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.events.nskr_loanShark;
 import scripts.kissa.LOST_SECTOR.campaign.intel.nskr_hintManager;
 import scripts.kissa.LOST_SECTOR.campaign.fleets.events.nskr_interceptManager;
+import scripts.kissa.LOST_SECTOR.campaign.quests.characters.killBrainManager;
 import scripts.kissa.LOST_SECTOR.campaign.quests.jobs.contractManager;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.questStageManager;
 import scripts.kissa.LOST_SECTOR.campaign.loot.nskr_bountyLoot;
@@ -226,6 +227,7 @@ public class nskr_modPlugin extends BaseModPlugin {
             EFS_LIST.add(new thronesGiftManager());
             EFS_LIST.add(new hellSpawnManager());
             EFS_LIST.add(new customCampaignListener());
+            //EFS_LIST.add(new killBrainManager());
 
             if (IS_NEXELERIN){
                 EFS_LIST.add(new hellSpawnNexListener());

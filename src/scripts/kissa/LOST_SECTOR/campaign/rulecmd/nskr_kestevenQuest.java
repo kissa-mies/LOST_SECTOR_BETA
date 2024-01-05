@@ -601,7 +601,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 			text.addPara(jobText);
 		}
 
-		dialog.getOptionPanel().addOption(nskr_stringHelper.getString("back", true), "nskr_kestevenQuestExit");
+		dialog.getOptionPanel().addOption("Back", "nskr_kestevenQuestExit");
 	}
 
 	protected void addSkipOption(){
@@ -1140,7 +1140,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 			noLeave = true;
 		}
 
-		if (!noLeave) dialog.getOptionPanel().addOption(nskr_stringHelper.getString("back", true), "nskr_kestevenQuestExit");
+		if (!noLeave) dialog.getOptionPanel().addOption("Back", "nskr_kestevenQuestExit");
 	}
 	protected void extraDialogueStart()
 	{
@@ -1207,7 +1207,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 		text.setFontSmallInsignia();
 		text.setFontInsignia();
 
-		dialog.getOptionPanel().addOption(nskr_stringHelper.getString("back", true), DIALOG_OPTION_PREFIX);
+		dialog.getOptionPanel().addOption("Back", DIALOG_OPTION_PREFIX);
 	}
 
 	protected void extraDialogue(int index)

@@ -29,10 +29,7 @@ import scripts.kissa.LOST_SECTOR.campaign.quests.util.fleetInfo;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.questStageManager;
 import scripts.kissa.LOST_SECTOR.campaign.quests.util.simpleFleetMember;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class fleetUtil {
 
@@ -436,11 +433,17 @@ public class fleetUtil {
         if (captain==null) return;
         int aiType = captain.getStats().getLevel();
 
+        //no wait this breaks everything
+        //
         //just in case
-        if (aiType==1 || aiType==2){
-            aiId = "gamma_core";
-            portraitId = "graphics/portraits/portrait_ai1b.png";
-        }
+        //if (aiType==1 || aiType==2){
+        //    //actually just make them level 4
+        //    Map<String, Integer> skills = util.createRandomSkills(4, 1f, new Random());
+//
+        //    util.setOfficerSkills(captain, skills);
+//
+        //    aiType = captain.getStats().getLevel();
+        //}
         //gamma
         if (aiType==3 || aiType==4){
             aiId = "gamma_core";

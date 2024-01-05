@@ -161,8 +161,8 @@ public class automateDialog implements InteractionDialogPlugin {
         }
 
         dialog.showFleetMemberPickerDialog("Pick from your fleet",
-                Misc.ucFirst(nskr_stringHelper.getString("confirm")),
-                Misc.ucFirst(nskr_stringHelper.getString("cancel")),
+                Misc.ucFirst("confirm"),
+                Misc.ucFirst("cancel"),
                 5, 6, 120,true,false, getAutomatableShips(), new FleetMemberPickerListener() {
                     @Override
                     public void pickedFleetMembers(java.util.List<FleetMemberAPI> members) {

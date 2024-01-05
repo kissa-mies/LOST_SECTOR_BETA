@@ -8,6 +8,8 @@ Balance changes:
 -
 
 Fixes:
+- Fixed Space Time Anchor causing ships to take massive damage from beams
+- Fixed rare campaign crash with the hintManager
 - Frost system fleets actually prevent you from disengaging
 - Fixed some unique ships having hidden fleet tooltips forever
 - Fixed Eliza's fight sometimes making you hostile to Independents

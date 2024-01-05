@@ -128,7 +128,6 @@ public class nskr_abyssSpawner extends BaseCampaignEventListener implements Ever
                             "extreme caution",
                             Global.getSettings().getColor("yellowTextColor"),
                             Global.getSettings().getColor("yellowTextColor"));
-                    nskr_hintManager.setIntelReceived(true, HINT_KEY);
                     firstTime.val = false;
                 }
             }

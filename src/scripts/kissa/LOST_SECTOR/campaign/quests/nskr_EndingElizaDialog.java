@@ -139,7 +139,7 @@ public class nskr_EndingElizaDialog implements InteractionDialogPlugin {
             //hellspawn
             if (gamemodeManager.getMode() == gamemodeManager.gameMode.HELLSPAWN) hellSpawnEventIntel.get().addFactor(
                     new hellSpawnEventFactors(100+ mathUtil.getSeededRandomNumberInRange(3,10, getRandom()),
-                    "Gave the UPC to Eliza", "What could possibly go wrong.", ""));
+                    "Gave the UPC to Eliza", "What could possibly go wrong?", ""));
 
             //rewards
             CargoAPI playerCargo = Global.getSector().getPlayerFleet().getCargo();

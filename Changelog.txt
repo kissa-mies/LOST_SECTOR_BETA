@@ -5,7 +5,8 @@ New Stuff:
    - Hellspawn
 
 Balance changes:
--
+- Critical Point Protection increased S-mod Penalty 10%->30%
+- Volatile Flux Injector increased S-mod Penalty 25%->33%
 
 Fixes:
 - Fixed Space Time Anchor causing ships to take massive damage from beams

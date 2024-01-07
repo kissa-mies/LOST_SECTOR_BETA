@@ -17,19 +17,24 @@ import java.awt.*;
 
 public class hellSpawnPeacefulSkill {
 
-    public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect {
+    public static class Level1 extends BaseSkillEffectDescription implements ShipSkillEffect, AfterShipCreationSkillEffect {
+
+        @Override
+        public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+            ship.addListener(new hellSpawnPeacefulSkillListener(ship));
+        }
+
+        @Override
+        public void unapplyEffectsAfterShipCreation(ShipAPI ship, String id) {
+            ship.removeListenerOfClass(hellSpawnPeacefulSkillListener.class);
+        }
 
         @Override
         public void apply(MutableShipStatsAPI stats, ShipAPI.HullSize hullSize, String id, float level) {
-            if (!isCivilian(stats)) {
-                //and I have to use a hullmod to apply the listener AAAA FUCK
-                stats.getVariant().addMod("nskr_hellSpawnPeacefulSkillDummy");
-            }
         }
 
         @Override
         public void unapply(MutableShipStatsAPI stats, ShipAPI.HullSize hullSize, String id) {
-            stats.getVariant().removeMod("nskr_hellSpawnPeacefulSkillDummy");
         }
 
         @Override
@@ -58,7 +63,6 @@ public class hellSpawnPeacefulSkill {
 
         @Override
         public void unapply(MutableShipStatsAPI stats, ShipAPI.HullSize hullSize, String id) {
-            stats.getVariant().removeMod("nskr_hellSpawnPeacefulSkillDummy");
         }
 
         @Override

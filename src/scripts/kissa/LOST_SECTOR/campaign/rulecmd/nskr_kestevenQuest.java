@@ -676,12 +676,14 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 		Global.getSoundPlayer().playUISound("ui_char_spent_story_point",1f,1f);
 
 		if (person==jack) {
-			text.addParagraph("He looks almost flustered. \"What- How did you...\" He thinks for a moment. \" Well, I guess since you already know about our little plan you should head to these coordinates. " +
-					"I fell like you'll know what's waiting for you there.\"");
+			text.addParagraph("He looks almost flustered. \"What- How did you...\" He thinks for a moment.");
+			text.addParagraph("\"You know we got his strange lead recently pointing to these coordinates, I think you should investigate.\" " +
+					"He looks a little worried. \"Huh, I actually don't remember how we got these...\"");
 		}
 		if (person==alice){
-			text.addParagraph("She looks confused for a moment. \"What- How did you...\" She thinks for a moment. \"  Well, I guess since you already know about our little plan you should hea dto these coordinates. " +
-					"I fell like you'll know what's waiting for you there.\"");
+			text.addParagraph("She looks confused for a moment. \"What- How did you...\" She thinks for a moment.");
+			text.addParagraph("\"You know we got his strange lead recently pointing to these coordinates, I think you should investigate.\" " +
+					"She looks puzzled. \"Huh, I actually don't remember how we got these...\"");
 		}
 
 		//job3
@@ -724,6 +726,7 @@ public class nskr_kestevenQuest extends PaginatedOptions {
 
 		text.setFontSmallInsignia();
 		text.addPara("Added log entry for the Delve", g, h,"the Delve","");
+		text.addPara("Disabled questline achievements", g, r,"Disabled","");
 
 		Global.getSoundPlayer().playUISound("ui_noise_static",1f,1f);
 		text.setFontInsignia();

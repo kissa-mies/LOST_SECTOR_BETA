@@ -40,7 +40,7 @@ public class nskr_criticalArmor extends BaseHullMod {
         BREAKPOINTS.put(ShipAPI.HullSize.CRUISER, 900f);
         BREAKPOINTS.put(ShipAPI.HullSize.CAPITAL_SHIP, 1200f);
     }
-    public static final float SMOD_PENALTY = 10f;
+    public static final float SMOD_PENALTY = 30f;
 
     public static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     static {
